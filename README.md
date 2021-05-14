@@ -6,6 +6,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+##CI/CD
+Git -> Travis CI -> Heroku
+
+Scripts initiated by Travis.yml file:
+
+    "test_headless": "ng test --watch false --browsers ChromeHeadless",
+    "test_suite": "npm run lint && npm run test_headless"
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
