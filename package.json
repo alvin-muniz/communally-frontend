@@ -14,7 +14,7 @@
     "e2e": "ng e2e",
     "heroku-postbuild": "ng build --prod",
     "test_headless": "ng test --watch false --browsers ChromeHeadless",
-    "test_suite": "npm lint && npm test_headless"
+    "test_suite": "npm run lint && npm run test_headless"
   },
   "private": true,
   "dependencies": {
