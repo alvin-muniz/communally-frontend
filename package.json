@@ -12,7 +12,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "ng build --prod",
+    "test_headless": "ng test --watch false --browsers ChromeHeadless",
+    "test_suite": "npm lint && npm test_headless"
   },
   "private": true,
   "dependencies": {
