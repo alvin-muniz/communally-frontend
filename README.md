@@ -14,6 +14,10 @@ Scripts initiated by Travis.yml file:
     "test_headless": "ng test --watch false --browsers ChromeHeadless",
     "test_suite": "npm run lint && npm run test_headless"
 
+##Video RTC 
+https://blog.theodo.com/2021/01/webRTC-websockets-video-call-app/
+
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
