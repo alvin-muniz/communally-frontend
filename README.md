@@ -20,6 +20,29 @@ https://blog.theodo.com/2021/01/webRTC-websockets-video-call-app/
 
 ## Code scaffolding
 
+To develop my models, I created interfaces that will help provide an 
+additional level of type security to the http request. Defining these 
+interfaces to reflect the model of the incoming data helped ensuring that I 
+was receiving back what I was expecting.
+
+export interface User {
+password: string;
+username: string;
+id: number;
+emailAddress: string;
+}
+
+export interface LoginRequest {
+password: string;
+emailAddress: string;
+}
+
+// Strongly typed example to help maintain type integrity through workflow
+registerUser(user: User): Observable<User> {
+return this.http.post<User>('http://localhost:9092/auth/users/register', user);
+}
+
+
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build

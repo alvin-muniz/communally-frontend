@@ -26,10 +26,9 @@ export class SignupFormComponent implements OnInit {
       emailAddress: this.emailAddress,
       id: null
     };
-
     this.userService.registerUser(user)
       .subscribe(foundUser => {
-        console.log('This user is added to DB' + foundUser.username);
+        console.log('This user is added to DB' + foundUser.username + foundUser.id);
       });
   }
 

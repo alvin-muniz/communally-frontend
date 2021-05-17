@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../service/user.service';
+import {LoginRequest} from '../api-interface/LoginRequest';
 
 @Component({
   selector: 'app-login-form',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor() { }
+  emailAddress: string;
+  password: string;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
   }
+
+  loginUser(): void {
+    let loginRequest: LoginRequest = {
+      emailAddress: this.emailAddress,
+      password: this.password
+    };
+    this.userService.loginUser(loginRequest)
+      .subscribe(loginResponse =>
+      console.log(loginResponse));
+  }
+
 
 }
