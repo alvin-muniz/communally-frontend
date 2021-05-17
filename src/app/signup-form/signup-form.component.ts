@@ -20,7 +20,7 @@ export class SignupFormComponent implements OnInit {
   }
 
   registerUser(): void {
-    let user: User = {
+    const user: User = {
       username: this.username,
       password: this.password,
       emailAddress: this.emailAddress,

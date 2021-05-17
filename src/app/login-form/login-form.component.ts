@@ -18,7 +18,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   loginUser(): void {
-    let loginRequest: LoginRequest = {
+    const loginRequest: LoginRequest = {
       emailAddress: this.emailAddress,
       password: this.password
     };
