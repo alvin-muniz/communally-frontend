@@ -24,6 +24,46 @@ describe('TimerComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should pause a startTime() event', () => {
+    fixture.detectChanges();
+
+    const comp = fixture.componentInstance;
+    spyOn(comp, 'pauseTimer');
+    const button = fixture.debugElement.query(By.css('#pauseButton')).nativeElement;
+    button.click();
+    expect(comp.pauseTimer).toHaveBeenCalled();
+
+  });
+
+  it('should end a startTime() event', () => {
+    fixture.detectChanges();
+
+    const comp = fixture.componentInstance;
+    spyOn(comp, 'endTimer');
+    const button = fixture.debugElement.query(By.css('#endButton')).nativeElement;
+    button.click();
+    expect(comp.endTimer).toHaveBeenCalled();
+
+  });
+
+  // it('should increment the time variable ', () => {
+  //
+  //       const button = fixture.debugElement.query(By.css('#startButton'));
+  //       expect(component.time).toEqual(0);
+  //
+  //       button.triggerEventHandler('click', {});
+  //
+  //       setTimeout(() => {
+  //         console.log('set time out for testing');
+  //
+  //       }, 5500);
+  //       fixture.detectChanges();
+  //       expect(component.startTimer()).toHaveBeenCalled();
+  //       expect(component.time).toBeGreaterThan(4);
+  //   } );
+
+
+
   describe('Render', () => {
     beforeEach(() => {
       fixture.detectChanges();
@@ -51,6 +91,12 @@ describe('TimerComponent', () => {
       const endButton = fixture.debugElement.queryAll(By.css('#endButton'));
       expect(endButton.length).toBe(1);
       expect(endButton[0].nativeElement.innerHTML).toBe('End');
+    });
+
+    it('should have a a timer', () => {
+      const displayTimer = fixture.debugElement.queryAll(By.css('.display-timer'));
+      expect(displayTimer.length).toBe(1);
+      expect(displayTimer[0].nativeElement.innerHTML).toBe('00:00');
     });
 
 

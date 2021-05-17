@@ -51,6 +51,13 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
+Testing was done for every component, starting with me thinking about what I 
+wanted each component to contain from
+
+https://dev.to/lysofdev/an-angular-testing-cheatsheet-5hj2
+
+The meditation timer proved difficult to test so I 
+
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests
