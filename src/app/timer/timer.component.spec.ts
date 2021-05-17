@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TimerComponent } from './timer.component';
 import {By} from '@angular/platform-browser';
+import {TimePipe} from '../pipes/time.pipe';
 
 describe('TimerComponent', () => {
   let component: TimerComponent;
@@ -9,7 +10,7 @@ describe('TimerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TimerComponent ]
+      declarations: [ TimerComponent, TimePipe ]
     })
     .compileComponents();
   });
@@ -88,7 +89,7 @@ describe('TimerComponent', () => {
     } );
 
     it('should have an end button', () => {
-      const endButton = fixture.debugElement.queryAll(By.css('#endButton'));
+      const endButton = fixture.debugElement.queryAll(By.css('#stopButton'));
       expect(endButton.length).toBe(1);
       expect(endButton[0].nativeElement.innerHTML).toBe('End');
     });
@@ -96,7 +97,7 @@ describe('TimerComponent', () => {
     it('should have a a timer', () => {
       const displayTimer = fixture.debugElement.queryAll(By.css('.display-timer'));
       expect(displayTimer.length).toBe(1);
-      expect(displayTimer[0].nativeElement.innerHTML).toBe('00:00');
+      expect(displayTimer[0].nativeElement.innerHTML).toBe('00:00:00');
     });
 
 
