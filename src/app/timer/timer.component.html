@@ -1,6 +1,6 @@
 <p>timer works!</p>
 <h1>Meditation Timer</h1>
-<h2 class="display-timer">{{time}}</h2>
+<h2 class="display-timer">{{time | time}}</h2>
 <button (click)="startTimer()" id="startButton">Start</button>
 <button (click)="pauseTimer()" id="pauseButton">Pause</button>
-<button (click)="stopTimer()" id="endButton">End</button>
+<button (click)="stopTimer()" id="stopButton">End</button>

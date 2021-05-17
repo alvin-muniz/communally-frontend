@@ -39,10 +39,10 @@ describe('TimerComponent', () => {
     fixture.detectChanges();
 
     const comp = fixture.componentInstance;
-    spyOn(comp, 'endTimer');
-    const button = fixture.debugElement.query(By.css('#endButton')).nativeElement;
+    spyOn(comp, 'stopTimer');
+    const button = fixture.debugElement.query(By.css('#stopButton')).nativeElement;
     button.click();
-    expect(comp.endTimer).toHaveBeenCalled();
+    expect(comp.stopTimer).toHaveBeenCalled();
 
   });
 

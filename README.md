@@ -56,7 +56,16 @@ wanted each component to contain from
 
 https://dev.to/lysofdev/an-angular-testing-cheatsheet-5hj2
 
-The meditation timer proved difficult to test so I 
+The meditation timer proved difficult to test so I had to put that to the side.
+
+My workflow consisted of having Karma open on one window and hte local 
+server running in another and moving between them, starting with the red 
+tests in Karma and then confirming the changes in the html and then the live 
+server. THis allows the easiest route to update as I went along. 
+
+##Custom Pipe
+I utilized a custom pipe for the meditation timer to transform the 
+information from the time variable into a time format that's appropriate.
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
