@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginFormComponent } from './login-form.component';
+import {By} from '@angular/platform-browser';
+import {UserService} from '../service/user.service';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
@@ -8,6 +11,8 @@ describe('LoginFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientModule],
+      providers: [UserService],
       declarations: [ LoginFormComponent ]
     })
     .compileComponents();
@@ -22,4 +27,5 @@ describe('LoginFormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
