@@ -56,4 +56,9 @@ export class TimerComponent implements OnInit{
     }, 1000);
   }
 
+  timerFinished(isFinished: boolean): void {
+    console.log('timer finished called!');
+    this.stopTimer();
+  }
+
 }

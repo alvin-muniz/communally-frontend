@@ -17,6 +17,7 @@ export class DisplayTimerComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
+
   ngOnChanges(changes: SimpleChanges): void {
     const log: string[] = [];
     for (const propName in changes) {
