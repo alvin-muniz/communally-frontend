@@ -4,6 +4,7 @@ import { TimerComponent } from './timer.component';
 import {By} from '@angular/platform-browser';
 import {TimePipe} from '../pipes/time.pipe';
 import {absoluteFromSourceFile} from '@angular/compiler-cli/src/ngtsc/file_system';
+import {DisplayTimerComponent} from './display-timer/display-timer.component';
 
 describe('TimerComponent', () => {
   let component: TimerComponent;
@@ -11,7 +12,7 @@ describe('TimerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TimerComponent, TimePipe ]
+      declarations: [ TimerComponent, TimePipe, DisplayTimerComponent ]
     })
     .compileComponents();
   });
@@ -118,9 +119,8 @@ describe('TimerComponent', () => {
     });
 
     it('should have a a timer', () => {
-      const displayTimer = fixture.debugElement.queryAll(By.css('.display-timer'));
-      expect(displayTimer.length).toBe(1);
-      expect(displayTimer[0].nativeElement.innerHTML).toBe('00:00:00');
+      const displayTimer = fixture.debugElement.nativeElement.querySelector('app-display-timer');
+      expect(displayTimer).toBeTruthy();
     });
 
     it('should have 3 buttons that will assert the length of session', () => {

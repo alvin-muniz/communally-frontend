@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {TimePipe} from '../pipes/time.pipe';
 
 @Component({
@@ -7,12 +7,13 @@ import {TimePipe} from '../pipes/time.pipe';
   styleUrls: ['./timer.component.less'],
   providers: [TimePipe]
 })
-export class TimerComponent implements OnInit {
+export class TimerComponent implements OnInit{
 
 
   time: any = 0;
   timer: any;
   loggedIn: boolean;
+  changeLog: string[] = [];
 
   constructor(private timePipe: TimePipe) {
   }
@@ -26,10 +27,10 @@ export class TimerComponent implements OnInit {
     else {this.loggedIn = false; }
   }
 
+
+
   startTimer(): void {
     this.timer = setInterval(() => {
-      console.log('time is called');
-      console.log(this.time);
       this.time--;
       }, 1000);
   }
@@ -45,29 +46,14 @@ export class TimerComponent implements OnInit {
   }
 
   updateTime(updatedTime: any): any {
-    console.log(updatedTime + 'console logging input time');
     this.time = updatedTime;
   }
 
-  updateTimeEvent(updatedTime: any): any {
-    console.log(updatedTime + 'console logging input time');
-
-
-    this.timer = updatedTime;
-
-  }
-
-  getValue(event: Event): string {
-    return (event.target as HTMLInputElement).value;
-  }
-
   startSession(): void {
+    console.log('you are starting a logged in session');
     this.timer = setInterval(() => {
-      console.log('time is called');
-      console.log(this.time);
       this.time--;
     }, 1000);
-
   }
 
 }

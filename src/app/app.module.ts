@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { TimerComponent } from './timer/timer.component';
 import { TimePipe } from './pipes/time.pipe';
+import { DisplayTimerComponent } from './timer/display-timer/display-timer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TimePipe } from './pipes/time.pipe';
     LoginFormComponent,
     SignupFormComponent,
     TimerComponent,
-    TimePipe
+    TimePipe,
+    DisplayTimerComponent
   ],
   imports: [
     BrowserModule,
