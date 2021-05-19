@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TimerComponent } from './timer.component';
 import {By} from '@angular/platform-browser';
 import {TimePipe} from '../pipes/time.pipe';
+import {absoluteFromSourceFile} from '@angular/compiler-cli/src/ngtsc/file_system';
 
 describe('TimerComponent', () => {
   let component: TimerComponent;
@@ -47,21 +48,30 @@ describe('TimerComponent', () => {
 
   });
 
-  // it('should increment the time variable ', () => {
-  //
-  //       const button = fixture.debugElement.query(By.css('#startButton'));
-  //       expect(component.time).toEqual(0);
-  //
-  //       button.triggerEventHandler('click', {});
-  //
-  //       setTimeout(() => {
-  //         console.log('set time out for testing');
-  //
-  //       }, 5500);
-  //       fixture.detectChanges();
-  //       expect(component.startTimer()).toHaveBeenCalled();
-  //       expect(component.time).toBeGreaterThan(4);
-  //   } );
+  it('it should display only for a logged in user and start a persistSession method', () => {
+    fixture.detectChanges();
+
+    const comp = fixture.componentInstance;
+    spyOn(comp, 'startSession');
+    let startSession = fixture.debugElement.query(By.css('#startSession'));
+    const startButton = fixture.debugElement.query(By.css('#startButton'));
+    expect(startSession).toBeNull(true);
+    expect(startButton).toBeDefined(true);
+    console.log(startSession);
+    console.log(startButton);
+    comp.loggedIn = false;
+    expect(comp.loggedIn).toBe(false);
+    comp.loggedIn = true;
+    expect(comp.loggedIn).toBe(true);
+    expect(startSession).toBeDefined(true);
+    fixture.detectChanges();
+    expect(fixture.debugElement.query(By.css('#startButton'))).toBeFalsy();
+    startSession = fixture.debugElement.query(By.css('#startSession'));
+    startSession.nativeElement.click();
+    expect(comp.startSession).toHaveBeenCalled();
+  });
+
+
 
 
 
@@ -99,7 +109,5 @@ describe('TimerComponent', () => {
       expect(displayTimer.length).toBe(1);
       expect(displayTimer[0].nativeElement.innerHTML).toBe('00:00:00');
     });
-
-
   });
 });

@@ -1,7 +1,14 @@
 <h1>Meditation Timer</h1>
 <h2 class="display-timer">{{time | time}}</h2>
 <div class="console">
-  <button (click)="startTimer()" id="startButton">Start</button>
+
+
+    <button *ngIf="!loggedIn; else elseBlock" (click)="startTimer()"
+            id="startButton">Start</button>
+
+  <ng-template #elseBlock>
+    <button (click)="startSession()" id="startSession">Start</button>
+  </ng-template>
   <button (click)="pauseTimer()" id="pauseButton">Pause</button>
   <button (click)="stopTimer()" id="stopButton">End</button>
 </div>

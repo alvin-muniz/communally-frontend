@@ -10,10 +10,13 @@ export class TimerComponent implements OnInit {
 
   time = 0;
   timer;
+  loggedIn: boolean;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+    this.loggedIn = false;
   }
 
   startTimer(): void {
@@ -32,6 +35,10 @@ export class TimerComponent implements OnInit {
     clearInterval(this.timer);
     this.timer = 0;
     this.time = 0;
+  }
+
+  startSession(): void {
+    console.log('session started');
   }
 
 }
