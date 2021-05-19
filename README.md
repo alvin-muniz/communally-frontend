@@ -67,6 +67,22 @@ server. THis allows the easiest route to update as I went along.
 I utilized a custom pipe for the meditation timer to transform the 
 information from the time variable into a time format that's appropriate.
 
+##Persisting Sessions
+
+Currently a lot of the logic is being held in the timer component, that 
+needs to get persisted into a session object. Since that is a main component 
+of my application, persisting meditation sessions, I am going to keep the 
+overall flow of the information lightweight use a session service to persist 
+the information from the TimerComponent into a session object the view is 
+able to view and retrieve from a session route.
+
+Session Module will hold:
+TimerComponent {push session information to} -> Session Component {acquire 
+additional session information [ReflectionComponent nested within]}-> Persist 
+the Session Object -> Viewable at the route "session"
+
+
+
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests

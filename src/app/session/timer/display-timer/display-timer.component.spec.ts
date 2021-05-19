@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DisplayTimerComponent } from './display-timer.component';
 import {By} from '@angular/platform-browser';
 import {TimerComponent} from '../timer.component';
-import {TimePipe} from '../../pipes/time.pipe';
+import {TimePipe} from '../../../pipes/time.pipe';
 
 describe('DisplayTimerComponent', () => {
   let component: DisplayTimerComponent;

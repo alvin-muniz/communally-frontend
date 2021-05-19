@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TimerComponent } from './timer.component';
 import {By} from '@angular/platform-browser';
-import {TimePipe} from '../pipes/time.pipe';
+import {TimePipe} from '../../pipes/time.pipe';
 import {absoluteFromSourceFile} from '@angular/compiler-cli/src/ngtsc/file_system';
 import {DisplayTimerComponent} from './display-timer/display-timer.component';
 
@@ -83,6 +83,22 @@ describe('TimerComponent', () => {
     startSession = fixture.debugElement.query(By.css('#startSession'));
     startSession.nativeElement.click();
     expect(comp.startSession).toHaveBeenCalled();
+  });
+
+  describe('Session Feature', () => {
+    beforeEach(() => {
+      fixture.detectChanges();
+    });
+    it('should start saving a session when the start button is clicked and a user is logged in', () => {
+      fixture.detectChanges();
+      // create a session object via api interface
+      // create the local date object
+      //    -create a Local date object when the session starts
+      // create a new Duration Object after session is over based off time value
+      //
+
+    });
+
   });
 
 

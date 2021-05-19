@@ -7,24 +7,23 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import { TimerComponent } from './timer/timer.component';
+import { TimerComponent } from './session/timer/timer.component';
 import { TimePipe } from './pipes/time.pipe';
-import { DisplayTimerComponent } from './timer/display-timer/display-timer.component';
+import { DisplayTimerComponent } from './session/timer/display-timer/display-timer.component';
+import {SessionModule} from './session/session.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
-    SignupFormComponent,
-    TimerComponent,
-    TimePipe,
-    DisplayTimerComponent
+    SignupFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SessionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

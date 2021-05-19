@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {TimePipe} from '../../pipes/time.pipe';
+import {TimePipe} from '../../../pipes/time.pipe';
+
 
 @Component({
   selector: 'app-display-timer',

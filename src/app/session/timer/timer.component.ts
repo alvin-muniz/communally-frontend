@@ -1,5 +1,6 @@
 import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {TimePipe} from '../pipes/time.pipe';
+import {TimePipe} from '../../pipes/time.pipe';
+
 
 @Component({
   selector: 'app-timer',
@@ -26,8 +27,6 @@ export class TimerComponent implements OnInit{
     if (token) {this.loggedIn = true; }
     else {this.loggedIn = false; }
   }
-
-
 
   startTimer(): void {
     this.timer = setInterval(() => {
