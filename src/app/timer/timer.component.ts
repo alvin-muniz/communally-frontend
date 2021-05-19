@@ -46,7 +46,7 @@ export class TimerComponent implements OnInit {
 
   updateTime(updatedTime: any): any {
     console.log(updatedTime + 'console logging input time');
-    this.time = (updatedTime * 3)* updatedTime;
+    this.time = updatedTime;
   }
 
   updateTimeEvent(updatedTime: any): any {

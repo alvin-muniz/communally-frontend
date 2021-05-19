@@ -1,16 +1,18 @@
 <h1>Meditation Timer</h1>
-<h2 class="display-timer">{{time | time}}</h2>
-<div class="console">
 
-  <button class="updateTimeButton" id="five-minute" (click)="updateTime(5)">5
+<main class="container">
+  <div class="select-time">
+  <button class="updateTimeButton" id="five-minute" (click)="updateTime(300)">5
     minutes</button>
-  <button class="updateTimeButton" id="ten-minute" (click)="updateTime(10)">10 minutes</button>
-  <button class="updateTimeButton" id="twenty-minute" (click)="updateTime(20)">20 minutes</button>
-<!--  <input (keyup)="updateTime()" #updateTimeField type="text"-->
-<!--         id="custom-time" name="custom" placeholder="Enter your time here">-->
+  <button class="updateTimeButton" id="ten-minute"
+          (click)="updateTime(600)">10 minutes</button>
+  <button class="updateTimeButton" id="twenty-minute"
+          (click)="updateTime(1200)">20 minutes</button>
+  </div>
+  <h2 class="display-timer">{{time | time}}</h2>
 
-
-    <button *ngIf="!loggedIn; else elseBlock" (click)="startTimer()"
+<div class="console">
+  <button *ngIf="!loggedIn; else elseBlock" (click)="startTimer()"
             id="startButton">Start</button>
 
   <ng-template #elseBlock>
@@ -19,3 +21,4 @@
   <button (click)="pauseTimer()" id="pauseButton">Pause</button>
   <button (click)="stopTimer()" id="stopButton">End</button>
 </div>
+</main>
