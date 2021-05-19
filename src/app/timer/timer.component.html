@@ -2,12 +2,17 @@
 <h2 class="display-timer">{{time | time}}</h2>
 <div class="console">
 
+  <button id="five-minute" (click)="updateTime(5)">5 minutes</button>
+  <button id="ten-minute" (click)="updateTime(10)">10 minutes</button>
+  <button id="twenty-minute" (click)="updateTime(20)">20 minutes</button>
+
+
 
     <button *ngIf="!loggedIn; else elseBlock" (click)="startTimer()"
             id="startButton">Start</button>
 
   <ng-template #elseBlock>
-    <button (click)="startSession()" id="startSession">Start</button>
+    <button (click)="startSession()" id="startSession">Start Logged</button>
   </ng-template>
   <button (click)="pauseTimer()" id="pauseButton">Pause</button>
   <button (click)="stopTimer()" id="stopButton">End</button>

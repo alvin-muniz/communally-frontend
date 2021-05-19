@@ -9,22 +9,21 @@ import {LoginRequest} from '../api-interface/LoginRequest';
 })
 export class LoginFormComponent implements OnInit {
 
-  emailAddress: string;
-  password: string;
+  public emailAddress: string;
+  public password: string;
+
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
   }
 
-  loginUser(): void {
+  loginUser(): void{
     const loginRequest: LoginRequest = {
       emailAddress: this.emailAddress,
       password: this.password
     };
-    this.userService.loginUser(loginRequest)
-      .subscribe(loginResponse =>
-      console.log(loginResponse));
+    this.userService.loginUser(loginRequest);
   }
 
 

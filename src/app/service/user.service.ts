@@ -16,7 +16,13 @@ export class UserService {
     return this.http.post<User>('http://localhost:9092/auth/users/register', user);
   }
 
-  loginUser(loginRequest: LoginRequest): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>('http://localhost:9092/auth/users/login', loginRequest);
+  loginUser(loginRequest: LoginRequest): any {
+    return this.http.post<LoginResponse>('http://localhost:9092/auth/users/login', loginRequest)
+      .subscribe(response =>
+      {
+        const token = response.jwt;
+        localStorage.setItem('token', `${token}`);
+      });
   }
 }
+

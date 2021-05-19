@@ -15,8 +15,13 @@ export class TimerComponent implements OnInit {
   constructor() {
   }
 
+  //make the time inputs custom for the user so it countsdown
+
+
   ngOnInit(): void {
-    this.loggedIn = false;
+    const token = localStorage.getItem('token');
+    if (token) {this.loggedIn = true;}
+    else {this.loggedIn = false;}
   }
 
   startTimer(): void {
@@ -37,8 +42,13 @@ export class TimerComponent implements OnInit {
     this.time = 0;
   }
 
+  updateTime(updatedTime: number): void {
+    this.timer = updatedTime;
+  }
+
   startSession(): void {
-    console.log('session started');
+
+
   }
 
 }
