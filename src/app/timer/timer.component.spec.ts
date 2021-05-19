@@ -50,13 +50,20 @@ describe('TimerComponent', () => {
 
   it('should update the timer to the value needed', () => {
     fixture.detectChanges();
-
     const comp = fixture.componentInstance;
     spyOn(comp, 'updateTime').and.callThrough();
-    const button = fixture.debugElement.query(By.css('#five-minute')).nativeElement;
+    const button = fixture.debugElement.query(By.css('.updateTimeButton')).nativeElement;
     button.click();
     expect(comp.updateTime).toHaveBeenCalled();
     expect(comp.timer).toEqual(5);
+  });
+
+  it('should update the timer to the input value', () => {
+    fixture.detectChanges();
+    const comp = fixture.componentInstance;
+    spyOn(comp, 'updateTime').and.callThrough();
+    const inputField = fixture.debugElement.query(By.css('#custom-time')).nativeElement;
+    inputField.keyup();
 
 
   });
@@ -137,7 +144,7 @@ describe('TimerComponent', () => {
     it('should have a form field that will allow custom session length', () => {
       const customInput = fixture.debugElement.queryAll(By.css('#custom-time'));
       expect(customInput.length).toBe(1);
-      expect(customInput[0].nativeElement.innerHTML).toBe('Enter your time here');
+      expect(customInput[0].nativeElement.placeholder).toBe('Enter your time here');
     });
   });
 });

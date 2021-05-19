@@ -2,10 +2,12 @@
 <h2 class="display-timer">{{time | time}}</h2>
 <div class="console">
 
-  <button id="five-minute" (click)="updateTime(5)">5 minutes</button>
-  <button id="ten-minute" (click)="updateTime(10)">10 minutes</button>
-  <button id="twenty-minute" (click)="updateTime(20)">20 minutes</button>
-
+  <button class="updateTimeButton" id="five-minute" (click)="updateTime(5)">5
+    minutes</button>
+  <button class="updateTimeButton" id="ten-minute" (click)="updateTime(10)">10 minutes</button>
+  <button class="updateTimeButton" id="twenty-minute" (click)="updateTime(20)">20 minutes</button>
+<!--  <input (keyup)="updateTime()" #updateTimeField type="text"-->
+<!--         id="custom-time" name="custom" placeholder="Enter your time here">-->
 
 
     <button *ngIf="!loggedIn; else elseBlock" (click)="startTimer()"
