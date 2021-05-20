@@ -4,6 +4,7 @@ import { SessionComponent } from './session.component';
 import {By} from '@angular/platform-browser';
 import {TimePipe} from '../../pipes/time.pipe';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {ReflectionService} from '../../service/reflection/reflection.service';
 
 describe('SessionComponent', () => {
   let component: SessionComponent;
@@ -12,7 +13,8 @@ describe('SessionComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ SessionComponent, TimePipe ],
-      imports: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule],
+      providers: [ReflectionService]
     })
     .compileComponents();
   });

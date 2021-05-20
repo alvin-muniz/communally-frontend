@@ -13,7 +13,9 @@
 </div>
 
   <app-reflection-form
+    [currentReflection]="currentReflection"
     [currentSession]="currentSession"
-    (reflectionSubmission)="showAddedReflection($event)">
+    (reflectionSubmission)="showAddedReflection($event)"
+  (contentListSubmission)="saveContent($event)">
   </app-reflection-form>
 </ng-template>

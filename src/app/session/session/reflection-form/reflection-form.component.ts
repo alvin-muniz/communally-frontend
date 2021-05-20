@@ -12,6 +12,7 @@ import {Reflection} from '../../../api-interface/Reflection';
 export class ReflectionFormComponent implements OnInit {
 
   @Output() reflectionSubmission = new EventEmitter<Map<boolean, Reflection>>();
+  @Output() contentListSubmission = new EventEmitter<Map<boolean, any[]>>();
   showContent: boolean;
   @Input() currentReflection: Reflection = {
     id: null,
@@ -24,6 +25,11 @@ export class ReflectionFormComponent implements OnInit {
   constructor(private reflectionService: ReflectionService) { }
 
   ngOnInit(): void {
+    if (!this.currentReflection.entry)
+    {
+      this.currentReflection.entry = 'Enter Your Reflection here';
+      this.currentReflection.content = [];
+    }
   }
 
   submitReflection(): void{
@@ -32,33 +38,31 @@ export class ReflectionFormComponent implements OnInit {
       .subscribe(response => {
           this.currentReflection =  response;
           this.reflectionService.setCurrentReflection(response);
-          console.log(this.reflectionService.getCurrentReflection().id, 'reflection service called');
           const reflectionMap = new Map(
             [
               [true, response]
             ]
           );
+
           this.reflectionSubmission.emit(reflectionMap);
 
+          const contentMap = new Map(
+          [
+            [true, this.contentList]
+          ]
+        );
+          if (!(this.getAllContent().length === 0)) {
+          this.contentListSubmission.emit(contentMap);
+        } else {
+          console.log('no content to push ');
+        }
         }
       );
+
+
   }
 
-  saveReflectionContent() {
-    if (!(this.getAllContent().length === 0))
-    {
-      console.log('this' + this.reflectionService.getCurrentReflection().id);
-      this.contentList.forEach(content => {
-        this.reflectionService.saveReflectionContent(this.reflectionService.getCurrentReflection().id, this.currentSession.id, content)
-          .subscribe(savedContent => {
-            console.log(savedContent.id, 'Content Saved Succcessfull wtih this id');
-          });
-      });
 
-    } else {
-      console.log('this is calling because content is empty');
-    }
-  }
 
   showContentForm() {
     this.showContent = true;
