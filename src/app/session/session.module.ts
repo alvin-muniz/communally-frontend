@@ -5,11 +5,12 @@ import {DisplayTimerComponent} from './timer/display-timer/display-timer.compone
 import {TimePipe} from '../pipes/time.pipe';
 import { SessionComponent } from './session/session.component';
 import {RouterModule} from '@angular/router';
+import { ReflectionFormComponent } from './session/reflection-form/reflection-form.component';
 
 
 
 @NgModule({
-  declarations: [TimerComponent, DisplayTimerComponent,  TimePipe, SessionComponent],
+  declarations: [TimerComponent, DisplayTimerComponent,  TimePipe, SessionComponent, ReflectionFormComponent],
   imports: [
     CommonModule, RouterModule
   ],

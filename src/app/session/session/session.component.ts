@@ -9,12 +9,22 @@ import {SessionService} from '../../service/session/session.service';
 })
 export class SessionComponent implements OnInit {
 
+  addedReflection: boolean;
+
   currentSession: any;
 
-  constructor(private sessionService : SessionService) { }
+  constructor(private sessionService: SessionService) { }
 
   ngOnInit(): void {
     this.currentSession = this.sessionService.getCurrentSession();
+  }
+
+  showAddedReflection(showReflection: boolean): void {
+    this.addedReflection = showReflection;
+  }
+
+  saveSession(): void {
+    console.log(this.currentSession, 'this will be saved');
   }
 
 }

@@ -1,1 +1,17 @@
-<p>{{currentSession | json}}</p>
+<p *ngIf="!currentSession; else elseBlock"> A session has not been started,
+  please start one a new session!</p>
+<ng-template #elseBlock>
+<div class="session-details">
+  <p>{{currentSession | json}}</p>
+<p>{{currentSession.duration | time}}</p>
+  <p>{{currentSession.date }}</p>
+  <p>{{currentSession.moodBefore }}</p>
+  <p>{{currentSession.moodAfter }}</p>
+  <p *ngIf="addedReflection">Reflection is now added for this</p>
+
+  <button (click) = "saveSession()">Save Session</button>
+</div>
+
+  <app-reflection-form
+    (reflectionSubmission)="showAddedReflection($event)"></app-reflection-form>
+</ng-template>
