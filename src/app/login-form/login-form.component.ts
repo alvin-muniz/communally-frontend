@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../service/user.service';
 import {LoginRequest} from '../api-interface/LoginRequest';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -13,7 +14,7 @@ export class LoginFormComponent implements OnInit {
   public password: string;
 
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +25,7 @@ export class LoginFormComponent implements OnInit {
       password: this.password
     };
     this.userService.loginUser(loginRequest);
+
   }
 
 

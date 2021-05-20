@@ -8,11 +8,12 @@ import {RouterModule} from '@angular/router';
 import { ReflectionFormComponent } from './session/reflection-form/reflection-form.component';
 import { ContentTileComponent } from './session/content-tile/content-tile.component';
 import {FormsModule} from '@angular/forms';
+import { HistoryComponent } from './history/history.component';
 
 
 
 @NgModule({
-  declarations: [TimerComponent, DisplayTimerComponent,  TimePipe, SessionComponent, ReflectionFormComponent, ContentTileComponent],
+  declarations: [TimerComponent, DisplayTimerComponent,  TimePipe, SessionComponent, ReflectionFormComponent, ContentTileComponent, HistoryComponent],
   imports: [
     CommonModule, RouterModule, FormsModule
   ],

@@ -4,6 +4,7 @@ import { LoginFormComponent } from './login-form.component';
 import {By} from '@angular/platform-browser';
 import {UserService} from '../service/user.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
@@ -11,7 +12,7 @@ describe('LoginFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, RouterTestingModule],
       providers: [UserService],
       declarations: [ LoginFormComponent ]
     })

@@ -34,6 +34,7 @@ export class UserService {
         localStorage.setItem('token', `${token}`);
         this.isLoginSubject.next(true);
       });
+
   }
 
   logoutUser(): void {
