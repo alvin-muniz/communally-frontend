@@ -10,6 +10,9 @@ import {LoginResponse} from '../api-interface/LoginResponse';
 })
 export class UserService {
 
+  DEV_BASE_URL = 'http://localhost:9092';
+  // BASE_URL = 'https://communally-backend-sei.herokuapp.com';
+
   isLoggedIn: boolean;
 
   constructor(private http: HttpClient) { }
@@ -22,11 +25,11 @@ export class UserService {
 //   console.log('this user is not logged in');
 // }
   registerUser(user: User): Observable<User> {
-    return this.http.post<User>('http://localhost:9092/auth/users/register', user);
+    return this.http.post<User>(`${this.DEV_BASE_URL}/auth/users/register`, user);
   }
 
   loginUser(loginRequest: LoginRequest): any {
-    return this.http.post<LoginResponse>('http://localhost:9092/auth/users/login', loginRequest)
+    return this.http.post<LoginResponse>(`${this.DEV_BASE_URL}/auth/users/login`, loginRequest)
       .subscribe(response =>
       {
         const token = response.jwt;

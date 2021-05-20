@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ReflectionFormComponent } from './reflection-form.component';
+import {SessionService} from '../../../service/session/session.service';
+import {ReflectionService} from '../../../service/reflection/reflection.service';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('ReflectionFormComponent', () => {
   let component: ReflectionFormComponent;
@@ -8,7 +11,9 @@ describe('ReflectionFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReflectionFormComponent ]
+      declarations: [ ReflectionFormComponent ],
+      providers: [SessionService, ReflectionService],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   });

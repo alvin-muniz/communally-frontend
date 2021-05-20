@@ -84,6 +84,16 @@ the Session Object -> Viewable at the route "session"
  2. 
 
 
+Testing Resource
+https://github.com/priyankaprasadam/TestAngularApp/blob/master/src/app/Services/PostService.spec.ts
+https://www.dotnetcurry.com/angularjs/unit-testing-angular-services
+https://angular.io/guide/testing-services
+https://semaphoreci.com/community/tutorials/testing-routes-in-angular-2
+
+https://www.prestonlamb.com/blog/unit-testing-in-angular
+
+https://www.digitalocean.com/community/tutorials/angular-testing-with-spies
+
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests

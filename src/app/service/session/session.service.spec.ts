@@ -2,6 +2,8 @@ import {SessionService} from './session.service';
 import {Mood} from '../../api-interface/Mood';
 import {Session} from '../../api-interface/Session';
 import {TestBed} from '@angular/core/testing';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('SessionService', () => {
 
@@ -9,7 +11,8 @@ describe('SessionService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SessionService]
+      imports: [HttpClientTestingModule],
+      providers: [SessionService ]
     });
     service = TestBed.inject(SessionService);
   });

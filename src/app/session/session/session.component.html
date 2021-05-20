@@ -7,11 +7,13 @@
   <p>{{currentSession.date }}</p>
   <p>{{currentSession.moodBefore }}</p>
   <p>{{currentSession.moodAfter }}</p>
-  <p *ngIf="addedReflection">Reflection is now added for this</p>
+  <p *ngIf="addedReflection">Reflection is now added for this </p>
 
   <button (click) = "saveSession()">Save Session</button>
 </div>
 
   <app-reflection-form
-    (reflectionSubmission)="showAddedReflection($event)"></app-reflection-form>
+    [currentSession]="currentSession"
+    (reflectionSubmission)="showAddedReflection($event)">
+  </app-reflection-form>
 </ng-template>

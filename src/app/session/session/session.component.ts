@@ -16,15 +16,25 @@ export class SessionComponent implements OnInit {
   constructor(private sessionService: SessionService) { }
 
   ngOnInit(): void {
+    console.log('Session COMPONENT Called');
     this.currentSession = this.sessionService.getCurrentSession();
+    if (this.currentSession != null) {
+
+      this.sessionService.saveSession(this.currentSession)
+        .subscribe(response =>
+        {
+          this.currentSession.id = response.id;
+
+        });
+    }
   }
 
   showAddedReflection(showReflection: boolean): void {
     this.addedReflection = showReflection;
   }
 
-  saveSession(): void {
-    console.log(this.currentSession, 'this will be saved');
-  }
+  // saveSession(): void {
+  //   console.log(this.currentSession, 'this will be saved');
+  // }
 
 }

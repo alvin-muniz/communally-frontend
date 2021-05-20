@@ -6,13 +6,15 @@ import {TimePipe} from '../pipes/time.pipe';
 import { SessionComponent } from './session/session.component';
 import {RouterModule} from '@angular/router';
 import { ReflectionFormComponent } from './session/reflection-form/reflection-form.component';
+import { ContentTileComponent } from './session/content-tile/content-tile.component';
+import {FormsModule} from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [TimerComponent, DisplayTimerComponent,  TimePipe, SessionComponent, ReflectionFormComponent],
+  declarations: [TimerComponent, DisplayTimerComponent,  TimePipe, SessionComponent, ReflectionFormComponent, ContentTileComponent],
   imports: [
-    CommonModule, RouterModule
+    CommonModule, RouterModule, FormsModule
   ],
   exports: [DisplayTimerComponent, TimerComponent]
 })

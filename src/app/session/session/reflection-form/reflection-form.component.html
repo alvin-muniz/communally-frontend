@@ -1,7 +1,19 @@
 <section>
   <label>Leave a Reflection</label>
-  <input type="text" placeholder="Enter your reflection" />
+  <input [(ngModel)]="currentReflection.entry" type="text"
+         placeholder="Enter your reflection" />
   <label>Add Content</label>
-  <button>Add Content</button>
-  <button (click)="submitForm()">Submit Reflection</button>
+  <button (click)="showContentForm()">Add Content</button>
+
+  <app-content-tile
+    *ngIf="showContent" (submittedContent)="addContent($event)">
+
+  </app-content-tile>
+  <button (click)="submitReflection()">Submit Reflection</button>
+  <div class="content-grid">
+  <p *ngFor="let content of getAllContent()">content</p>
+  </div>
+  <pre>{{currentReflection | json}}</pre>
+  <pre>{{currentSession | json}}</pre>
+  <pre *ngFor="let content of contentList"> {{content | json}}</pre>
 </section>

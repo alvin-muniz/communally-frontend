@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SessionComponent } from './session.component';
 import {By} from '@angular/platform-browser';
 import {TimePipe} from '../../pipes/time.pipe';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('SessionComponent', () => {
   let component: SessionComponent;
@@ -10,7 +11,8 @@ describe('SessionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SessionComponent, TimePipe ]
+      declarations: [ SessionComponent, TimePipe ],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   });

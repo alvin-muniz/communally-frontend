@@ -17,7 +17,7 @@ describe('TimerComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ TimerComponent, TimePipe, DisplayTimerComponent ],
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, HttpClientTestingModule],
       providers: []
     })
     .compileComponents();
