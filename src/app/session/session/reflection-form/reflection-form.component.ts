@@ -11,11 +11,11 @@ import {Reflection} from '../../../api-interface/Reflection';
 })
 export class ReflectionFormComponent implements OnInit {
 
-  @Output() reflectionSubmission = new EventEmitter<boolean>();
+  @Output() reflectionSubmission = new EventEmitter<Map<boolean, Reflection>>();
   showContent: boolean;
-  currentReflection = {
+  @Input() currentReflection: Reflection = {
     id: null,
-    entry: '',
+    entry: 'null',
     content: []
   };
   contentList = new Array();
@@ -24,23 +24,40 @@ export class ReflectionFormComponent implements OnInit {
   constructor(private reflectionService: ReflectionService) { }
 
   ngOnInit(): void {
-
   }
 
-  submitReflection(): void {
+  submitReflection(): void{
 
     this.reflectionService.saveReflection(this.currentReflection, this.currentSession.id)
       .subscribe(response => {
-          this.currentReflection = response;
-          this.reflectionSubmission.emit(true);
-          if(this.getAllContent().length === 0)
-          {
-            console.log('this is calling because content is empty');
-          }
-          // console.log(this.currentReflection.id, 'persisted successfully');
-          // console.log('saved reflection', response);
+          this.currentReflection =  response;
+          this.reflectionService.setCurrentReflection(response);
+          console.log(this.reflectionService.getCurrentReflection().id, 'reflection service called');
+          const reflectionMap = new Map(
+            [
+              [true, response]
+            ]
+          );
+          this.reflectionSubmission.emit(reflectionMap);
+
         }
       );
+  }
+
+  saveReflectionContent() {
+    if (!(this.getAllContent().length === 0))
+    {
+      console.log('this' + this.reflectionService.getCurrentReflection().id);
+      this.contentList.forEach(content => {
+        this.reflectionService.saveReflectionContent(this.reflectionService.getCurrentReflection().id, this.currentSession.id, content)
+          .subscribe(savedContent => {
+            console.log(savedContent.id, 'Content Saved Succcessfull wtih this id');
+          });
+      });
+
+    } else {
+      console.log('this is calling because content is empty');
+    }
   }
 
   showContentForm() {
