@@ -4,6 +4,7 @@ import {User} from '../api-interface/User';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {LoginRequest} from '../api-interface/LoginRequest';
 import {LoginResponse} from '../api-interface/LoginResponse';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class UserService {
 
   isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   isLoggedIn(): Observable<boolean> {
     return this.isLoginSubject.asObservable();
@@ -40,6 +41,7 @@ export class UserService {
   logoutUser(): void {
     localStorage.clear();
     this.isLoginSubject.next(false);
+
   }
 
   private hasToken(): boolean {

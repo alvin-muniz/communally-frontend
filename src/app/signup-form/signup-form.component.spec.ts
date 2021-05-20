@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SignupFormComponent } from './signup-form.component';
 import {UserService} from '../service/user.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('SignupFormComponent', () => {
   let component: SignupFormComponent;
@@ -10,7 +11,7 @@ describe('SignupFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, RouterTestingModule],
       providers: [UserService],
       declarations: [ SignupFormComponent ]
     })

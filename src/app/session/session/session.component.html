@@ -9,7 +9,9 @@
   <p>{{currentSession.moodAfter }}</p>
   <p *ngIf="addedReflection">Reflection is now added for this </p>
 
-  <button (click) = "saveSession()">Save Session</button>
+  <button (click) = "saveSession()">Start a New Session</button>
+  <button (click) = "saveSession()">View Previous Sessions</button>
+
 </div>
 
   <app-reflection-form

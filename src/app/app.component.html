@@ -17,7 +17,7 @@
         Login</a>
 
         <a *ngIf="(isLoggedIn | async)"  (click)="userService.logoutUser()"
-           href="/">
+           routerLink="login" href="/">
           Logout</a>
 
       <a *ngIf="!(isLoggedIn | async)" routerLink="signup" href="">Signup</a>

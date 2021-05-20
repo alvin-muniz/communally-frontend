@@ -17,6 +17,14 @@ export class LoginFormComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    console.log('Login form initialized');
+    this.userService.isLoggedIn()
+      .subscribe(response => {
+          if (response) {
+            this.router.navigate(['timer']);
+          }
+        }
+      );
   }
 
   loginUser(): void{
@@ -25,7 +33,8 @@ export class LoginFormComponent implements OnInit {
       password: this.password
     };
     this.userService.loginUser(loginRequest);
-
+    if(this.router.url !== 'login')
+    { this.ngOnInit(); }
   }
 
 

@@ -1,6 +1,8 @@
-<form>
+<form name="login-form">
   <h2>Login As a User</h2>
   <input [(ngModel)]="emailAddress" type="text" name="emailAddress" placeholder="Email Address"/>
   <input [(ngModel)]="password" type="text" name="password" placeholder="Password"/>
-  <input (click)="loginUser()" type="submit" vaue="Register">
+  <button (click)="loginUser()" type="submit" vaue="Login"
+  >Login
+  </button>
 </form>
