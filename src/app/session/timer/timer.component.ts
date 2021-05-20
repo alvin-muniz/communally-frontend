@@ -20,7 +20,7 @@ export class TimerComponent implements OnInit{
 
 
   constructor(private timePipe: TimePipe,
-              private route: Router,
+              private router: Router,
               private sessionService: SessionService) {
   }
 
@@ -76,7 +76,7 @@ export class TimerComponent implements OnInit{
     if ( isFinished && this.loggedIn ) {
       this.stopTimer();
 
-      this.route.navigate(['session']);
+      this.router.navigate(['session']);
     } else {
       this.stopTimer();
     }
