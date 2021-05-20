@@ -10,9 +10,7 @@ export class SessionService {
   private currentSession: Session;
 
   constructor() {
-    /** Only called once*/
     console.log('currentSession constructor for service');
-
   }
 
   getCurrentSession(): Session {

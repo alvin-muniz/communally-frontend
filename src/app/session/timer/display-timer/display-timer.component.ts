@@ -22,12 +22,13 @@ export class DisplayTimerComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     const log: string[] = [];
+    // tslint:disable-next-line:forin
     for (const propName in changes) {
       const changedProp = changes[propName];
       const to = JSON.stringify(changedProp.currentValue);
       if (changedProp.isFirstChange()) {
         console.log(`Initial value of ${propName} set to ${to}`);
-        this.sessionLength.emit(parseInt(to));
+        this.sessionLength.emit(parseInt(to, 0));
       } else {
         const from = JSON.stringify(changedProp.previousValue);
         console.log(`${propName} changed from ${from} to ${to}`);

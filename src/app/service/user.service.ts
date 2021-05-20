@@ -34,7 +34,7 @@ export class UserService {
       });
   }
 
-  logoutUser() {
+  logoutUser(): void {
     localStorage.clear();
   }
 }

@@ -24,7 +24,7 @@ describe('SessionService', () => {
   describe('#udpateCurrentService', ()  => {
 
       it('should update the current session object date and duration', ( ) => {
-        let mockSession = {
+        const mockSession = {
           id: null,
           date: null,
           duration: null,
@@ -45,8 +45,8 @@ describe('SessionService', () => {
 
         spyOn(service, 'updateCurrentSession').and.callThrough();
         spyOn(service, 'formatDate').and.callThrough();
-        //"date": "2015-07-25",
-        //"duration": "PT50M55S"
+        // "date": "2015-07-25",
+        // "duration": "PT50M55S"
         console.log(service.updateCurrentSession(mockSession));
         expect(service.updateCurrentSession).toHaveBeenCalled();
         expect(service.formatDate).toHaveBeenCalledWith(mockDate);
