@@ -33,33 +33,16 @@ export class ReflectionFormComponent implements OnInit {
   }
 
   submitReflection(): void{
-
     this.reflectionService.saveReflection(this.currentReflection, this.currentSession.id)
       .subscribe(response => {
-          this.currentReflection =  response;
-          this.reflectionService.setCurrentReflection(response);
-          const reflectionMap = new Map(
-            [
-              [true, response]
-            ]
-          );
-
+          const reflectionMap = new Map([[true, response]]);
           this.reflectionSubmission.emit(reflectionMap);
-
-          const contentMap = new Map(
-          [
-            [true, this.contentList]
-          ]
-        );
+          const contentMap = new Map([[true, this.contentList]]);
           if (!(this.getAllContent().length === 0)) {
           this.contentListSubmission.emit(contentMap);
-        } else {
-          console.log('no content to push ');
-        }
+        } else {console.log('no content to push ');}
         }
       );
-
-
   }
 
 

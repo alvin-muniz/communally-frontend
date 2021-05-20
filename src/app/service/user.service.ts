@@ -1,7 +1,7 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../api-interface/User';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {LoginRequest} from '../api-interface/LoginRequest';
 import {LoginResponse} from '../api-interface/LoginResponse';
 
@@ -13,17 +13,15 @@ export class UserService {
   DEV_BASE_URL = 'http://localhost:9092';
   // BASE_URL = 'https://communally-backend-sei.herokuapp.com';
 
-  isLoggedIn: boolean;
+  isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
 
   constructor(private http: HttpClient) { }
 
-//   if(localStorage.getItem('token') != null)
-// {
-//   this.isLoggedIn = true;
-//   console.log('this user is logged in');
-// } else {
-//   console.log('this user is not logged in');
-// }
+  isLoggedIn(): Observable<boolean> {
+    return this.isLoginSubject.asObservable();
+  }
+
+
   registerUser(user: User): Observable<User> {
     return this.http.post<User>(`${this.DEV_BASE_URL}/auth/users/register`, user);
   }
@@ -34,11 +32,17 @@ export class UserService {
       {
         const token = response.jwt;
         localStorage.setItem('token', `${token}`);
+        this.isLoginSubject.next(true);
       });
   }
 
   logoutUser(): void {
     localStorage.clear();
+    this.isLoginSubject.next(false);
+  }
+
+  private hasToken(): boolean {
+    return !!localStorage.getItem('token');
   }
 }
 

@@ -11,9 +11,17 @@
   <div id="logo">communally</div>
   <nav >
     <ul class="links">
-      <a routerLink="login" href="/">Login</a>
-      <a routerLink="signup" href="/link">Signup</a>
-      <a routerLink="timer"  href="/link">Timer</a>
+      <a *ngIf="!(isLoggedIn | async)"
+         routerLink="login"
+         href="/">
+        Login</a>
+
+        <a *ngIf="(isLoggedIn | async)"  (click)="userService.logoutUser()"
+           href="/">
+          Logout</a>
+
+      <a *ngIf="!(isLoggedIn | async)" routerLink="signup" href="">Signup</a>
+      <a routerLink="timer"  href="">Timer</a>
 
     </ul>
   </nav>
