@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Mood} from '../../api-interface/Mood';
 import {Session} from '../../api-interface/Session';
 
@@ -7,15 +7,24 @@ import {Session} from '../../api-interface/Session';
 })
 export class SessionService {
 
-  currentSession: Session = null;
+  private currentSession: Session;
 
-  constructor() { }
+  constructor() {
+    /** Only called once*/
+    console.log('currentSession constructor for service');
 
-  updateCurrentSession(object: Session): string {
+  }
 
-    object.id = 25;
-    object.date = this.formatDate(object.date);
-    return 'hello world';
+  getCurrentSession(): Session {
+    console.log(this.currentSession);
+    return this.currentSession;
+  }
+
+  updateCurrentSession(newSession: Session): void{
+
+    newSession.date = this.formatDate(newSession.date);
+    this.currentSession = newSession;
+    console.log(this.currentSession, 'CURRENT SESSION!');
 
   }
 

@@ -9,8 +9,10 @@
   <button class="updateTimeButton" id="twenty-minute"
           (click)="updateTime(1200)">20 minutes</button>
   </div>
-  <app-display-timer (timerCompleted)="timerFinished($event)"
-                     [time]="time"></app-display-timer>
+  <app-display-timer
+
+    (timerCompleted)="timerFinished($event)"
+    [time]="time"></app-display-timer>
 
 <div class="console">
   <button *ngIf="!loggedIn; else elseBlock" (click)="startTimer()"

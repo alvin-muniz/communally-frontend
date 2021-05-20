@@ -12,6 +12,7 @@ export class DisplayTimerComponent implements OnInit, OnChanges {
 
   @Input() time;
   @Output() timerCompleted = new EventEmitter<boolean>();
+  @Output() sessionLength = new EventEmitter<number>();
 
   constructor() { }
 
@@ -26,6 +27,7 @@ export class DisplayTimerComponent implements OnInit, OnChanges {
       const to = JSON.stringify(changedProp.currentValue);
       if (changedProp.isFirstChange()) {
         console.log(`Initial value of ${propName} set to ${to}`);
+        this.sessionLength.emit(parseInt(to));
       } else {
         const from = JSON.stringify(changedProp.previousValue);
         console.log(`${propName} changed from ${from} to ${to}`);

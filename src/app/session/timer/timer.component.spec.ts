@@ -103,7 +103,7 @@ describe('TimerComponent', () => {
       spyOn(sessionService, 'formatDate').and.callThrough();
 
       comp.startSession();
-      let mockSession = {
+      const mockSession = {
         id: null,
         date: '2021-05-20T02:47:34.551Z',
         duration: null,
@@ -119,6 +119,34 @@ describe('TimerComponent', () => {
     }));
 
   });
+
+  describe('#setSessionTime', () => {
+    beforeEach(() => {
+      fixture.detectChanges();
+    });
+    it('should #setSessionTime with the userService',  inject([SessionService], (sessionService: SessionService) => {
+      const comp = fixture.componentInstance;
+      spyOn(sessionService,  'updateCurrentSession').and.callThrough();
+      spyOn(sessionService, 'formatDate').and.callThrough();
+
+      comp.setSessionTime(600);
+      const mockSession = {
+        id: null,
+        date: '2021-05-20T02:47:34.551Z',
+        duration: null,
+        moodBefore: Mood.Positive,
+        moodAfter: Mood.Negative
+      };
+
+      sessionService.updateCurrentSession(mockSession);
+      expect(sessionService.updateCurrentSession).toHaveBeenCalledWith(mockSession);
+      expect(comp.startSession).toHaveBeenCalled();
+      expect(sessionService.formatDate).toHaveBeenCalledWith('2021-05-20T02:47:34.551Z');
+
+    }));
+
+  });
+
 
     /* Routing Testing Example*/
   describe('#isFinished', () => {
