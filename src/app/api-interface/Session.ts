@@ -1,3 +1,5 @@
+import {Mood} from './Mood';
+
 export interface Session {
   id: number;
   date: string;
@@ -6,8 +8,4 @@ export interface Session {
   moodAfter: Mood;
 }
 
-enum Mood {
-  Positive,
-  Neutral,
-  Negative
-}
+

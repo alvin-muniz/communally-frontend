@@ -11,6 +11,7 @@ import { TimerComponent } from './session/timer/timer.component';
 import { TimePipe } from './pipes/time.pipe';
 import { DisplayTimerComponent } from './session/timer/display-timer/display-timer.component';
 import {SessionModule} from './session/session.module';
+import {UserService} from './service/user.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import {SessionModule} from './session/session.module';
     HttpClientModule,
     SessionModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

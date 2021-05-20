@@ -1,6 +1,7 @@
 import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {TimePipe} from '../../pipes/time.pipe';
 import {Router} from '@angular/router';
+import {SessionService} from '../../service/session/session.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class TimerComponent implements OnInit{
   loggedIn: boolean;
   changeLog: string[] = [];
 
-  constructor(private timePipe: TimePipe, private route: Router) {
+  constructor(private timePipe: TimePipe, private route: Router, private sessionService: SessionService) {
   }
 
   // make the time inputs custom for the user so it countsdown
@@ -58,8 +59,10 @@ export class TimerComponent implements OnInit{
 
   timerFinished(isFinished: boolean): void {
     console.log('timer finished called!');
-    this.stopTimer();
-    this.route.navigate(['session']);
+    if ( isFinished ) {
+      this.stopTimer();
+      this.route.navigate(['session']);
+    }
   }
 
 }

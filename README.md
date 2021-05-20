@@ -80,7 +80,8 @@ Session Module will hold:
 TimerComponent {push session information to} -> Session Component {acquire 
 additional session information [ReflectionComponent nested within]}-> Persist 
 the Session Object -> Viewable at the route "session"
-
+ 1. Navigate to session component once timer finishes loading
+ 2. 
 
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
