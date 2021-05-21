@@ -7,7 +7,7 @@ import { SessionComponent } from './session/session.component';
 import {RouterModule} from '@angular/router';
 import { ReflectionFormComponent } from './session/reflection-form/reflection-form.component';
 import {FormsModule} from '@angular/forms';
-import { HistoryComponent } from './history/history.component';
+import { HistoryComponent } from '../profile/history/history.component';
 import {MoodDialogComponent} from './session/mood-dialog/mood-dialog.component';
 import { MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -22,7 +22,7 @@ import {ContentComponent} from '../content/content.component';
 @NgModule({
   declarations: [TimerComponent, DisplayTimerComponent,  TimePipe, SessionComponent,
     ReflectionFormComponent, ContentFormComponent,
-    HistoryComponent, MoodDialogComponent, MoodDialogOverlayComponent, ContentComponent],
+   MoodDialogComponent, MoodDialogOverlayComponent, ContentComponent],
   imports: [ BrowserAnimationsModule,
     CommonModule, RouterModule, FormsModule, MatDialogModule, MatFormFieldModule, MaterialModule],
   exports: [DisplayTimerComponent, TimerComponent]

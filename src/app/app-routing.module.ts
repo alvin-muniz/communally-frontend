@@ -4,6 +4,7 @@ import {LoginFormComponent} from './login-form/login-form.component';
 import {SignupFormComponent} from './signup-form/signup-form.component';
 import {TimerComponent} from './session/timer/timer.component';
 import {SessionComponent} from './session/session/session.component';
+import {ProfileComponent} from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'session',
     component: SessionComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   }
   ];
 

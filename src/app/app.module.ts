@@ -11,12 +11,16 @@ import {SessionModule} from './session/session.module';
 import {UserService} from './service/user.service';
 import {MaterialModule} from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HistoryComponent} from './profile/history/history.component';
+import {ProfileComponent} from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    HistoryComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
