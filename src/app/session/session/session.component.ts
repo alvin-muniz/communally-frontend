@@ -50,7 +50,7 @@ export class SessionComponent implements OnInit, OnDestroy {
           this.isSaved = true;
         });
     } else {
-      this.router.navigate(['timer']).then(r => 'r');
+      this.router.navigate(['/timer']).then(r => console.log(r));
     }
   }
 
@@ -76,11 +76,11 @@ export class SessionComponent implements OnInit, OnDestroy {
 
 
   newSession(): void {
-    this.router.navigate(['timer']).then(r => console.log(r));
+    this.router.navigate(['/timer']).then(r => console.log(r));
   }
 
   viewSession(): void {
-    this.router.navigate(['profile']).then(r => console.log(r));
+    this.router.navigate(['/profile']).then(r => console.log(r));
   }
 
 }
