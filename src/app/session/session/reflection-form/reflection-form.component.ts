@@ -41,14 +41,14 @@ export class ReflectionFormComponent implements OnInit {
           const contentMap = new Map([[true, this.contentList]]);
           if (!(this.getAllContent().length === 0)) {
           this.contentListSubmission.emit(contentMap);
-        } else {console.log('no content to push ');}
+        } else {console.log('no content to push '); }
         }
       );
   }
 
 
 
-  showContentForm() {
+  showContentForm(): void {
     this.showContent = true;
   }
 

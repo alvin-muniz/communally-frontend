@@ -46,5 +46,16 @@ export class ReflectionService {
     this.currentReflection = reflection;
   }
 
+  getReflectionBySessionId(sessionId): any{
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      }),
+    };
+    return this.http.get(`${this.DEV_BASE_URL}/api/sessions/reflections`, requestOptions);
+
+  }
+
 
 }

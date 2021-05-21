@@ -19,7 +19,7 @@ export class SignupFormComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
 
-  getErrorMessage() {
+  getErrorMessage(): any {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
     }

@@ -1,11 +1,11 @@
 <section>
   <mat-form-field appearance="fill">
-    <mat-label>Leave a Reflection</mat-label>
+    <mat-label>You Must Add A Reflection Before Saving Your Session</mat-label>
     <input [(ngModel)]="currentReflection.entry" name="reflection"
            matInput placeholder="Enter your reflection" >
   </mat-form-field>
   <label>Add Content</label>
-  <button (click)="showContentForm()" mat-button  ><mat-icon>
+  <button (click)="showContentForm()" mat-button ><mat-icon>
     note_add</mat-icon>Add Content</button>
   <app-content-form
     *ngIf="showContent" (submittedContent)="addContent($event)">

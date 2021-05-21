@@ -1,5 +1,32 @@
-<p>profile works!</p>
-<div class="profile">
 
+<div class="profile">
+<h1>Welcome! {{emailAddress}}</h1>
+
+  <mat-expansion-panel
+    *ngFor="let session of finalSessionList"
+    (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{session.date + 'ID: ' + session.id}}
+      </mat-panel-title>
+      <mat-panel-description>
+        View session details {{panelOpenState ? 'open' : 'closed'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <h3>
+      Session Duration: {{convertDateFormat(session.duration) }}
+      <br>Example with minutes: {{convertDateFormat("PT50M57S") }}
+    </h3>
+    <h3>
+      Your Mood Before: {{session.moodBefore}}</h3>
+    <h3>
+      Your Mood After:{{session.moodAfter}}</h3>
+    <h3 *ngIf="session.reflection.entry.length > 1; else elseBlock">
+      Your Reflection <br> {{session.reflection.entry}}</h3>
+    <ng-template #elseBlock>
+      <h3>
+        Your Reflection <br> This session did not have one</h3>
+    </ng-template>
+  </mat-expansion-panel>
 </div>
-<app-history></app-history>

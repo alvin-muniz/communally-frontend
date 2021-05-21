@@ -25,6 +25,7 @@ export class SessionComponent implements OnInit, OnDestroy {
 
   session: Session;
   subscription: Subscription;
+  canSave = false;
 
 
   isSaved = false;
@@ -42,10 +43,10 @@ export class SessionComponent implements OnInit, OnDestroy {
     this.subscription = this.sessionService.currentSeshion.subscribe(session => this.session = session);
 
     if (this.currentSession.moodBefore != null) {
-      this.sessionService.saveSession(this.currentSession)
+      this.session.moodAfter = this.currentSession.moodAfter;
+      this.sessionService.saveSession(this.session)
         .subscribe(response => {
           this.currentSession.id = response.id;
-          console.log(this.currentSession, 'Sved Session here!!!');
           this.isSaved = true;
         });
     } else {
@@ -53,13 +54,14 @@ export class SessionComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
   showAddedReflection(reflectionMap: Map<boolean, Reflection>): void {
     this.currentReflection = reflectionMap.get(true);
     this.addedReflection = reflectionMap.has(true);
+    this.canSave = true;
   }
 
   saveContent(contentMap: Map<boolean, any[]>): void {
@@ -73,16 +75,12 @@ export class SessionComponent implements OnInit, OnDestroy {
   }
 
 
-  newSession() {
+  newSession(): void {
     this.router.navigate(['timer']);
   }
 
-  viewSession() {
+  viewSession(): void {
     this.router.navigate(['profile']);
   }
-
-  // saveSession() {
-  //   console.log('this session is saved');
-  // }
 
 }

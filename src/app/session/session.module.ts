@@ -25,6 +25,6 @@ import {ContentComponent} from '../content/content.component';
    MoodDialogComponent, MoodDialogOverlayComponent, ContentComponent],
   imports: [ BrowserAnimationsModule,
     CommonModule, RouterModule, FormsModule, MatDialogModule, MatFormFieldModule, MaterialModule],
-  exports: [DisplayTimerComponent, TimerComponent]
+  exports: [DisplayTimerComponent, TimerComponent, TimePipe]
 })
 export class SessionModule { }

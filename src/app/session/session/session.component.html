@@ -24,7 +24,7 @@
     for this </h3>
 
 
-  <div class="session-buttons">
+  <div *ngIf="canSave" class="session-buttons">
   <button id="newSession" (click) = "newSession()" mat-button
           color="primary"><mat-icon>
     model_training</mat-icon>Start New Session</button>

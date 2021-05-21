@@ -17,7 +17,7 @@ export class LoginFormComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
 
-  getErrorMessage() {
+  getErrorMessage(): any {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
     }
@@ -46,7 +46,7 @@ export class LoginFormComponent implements OnInit {
       password: this.password
     };
     this.userService.loginUser(loginRequest);
-    if(this.router.url !== 'login')
+    if (this.router.url !== 'login')
     { this.ngOnInit(); }
   }
 

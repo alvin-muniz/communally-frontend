@@ -13,7 +13,20 @@
 <!--  </button>-->
   <span class="logo">communally</span>
 <nav class="links">
-  <button *ngIf="!(isLoggedIn | async)" routerLink="login" mat-icon-button
+  <button routerLink="timer" mat-icon-button
+          class="example-icon timer-icon"
+          aria-label="Example icon-button for signup">
+    <mat-icon>timer</mat-icon> Timer
+  </button>
+
+  <button *ngIf="(isLoggedIn | async)" routerLink="profile" mat-icon-button
+          class="example-icon login-icon"
+          aria-label="Example icon-button for login">
+    <mat-icon>account_circle</mat-icon> Profile
+  </button>
+
+  <button *ngIf="(isLoggedIn | async)===(false)" routerLink="login"
+          mat-icon-button
           class="example-icon login-icon"
           aria-label="Example icon-button for login">
     <mat-icon>login</mat-icon> Login
@@ -26,42 +39,19 @@
     <mat-icon>logout</mat-icon> Logout
   </button>
 
-  <button *ngIf="!(isLoggedIn | async)" routerLink="signup" mat-icon-button
+  <button *ngIf="(isLoggedIn | async) === (false)" routerLink="signup"
+          mat-icon-button
           class="example-icon create-icon"
           aria-label="Example icon-button for signup">
     <mat-icon>create</mat-icon> Sign Up
   </button>
 
-  <button routerLink="timer" mat-icon-button
-          class="example-icon timer-icon"
-          aria-label="Example icon-button for signup">
-    <mat-icon>timer</mat-icon> Timer
-  </button>
+
 
 
 </nav>
 
 </mat-toolbar>
-
-<!--<header>-->
-<!--  <div id="logo">communally</div>-->
-<!--  <nav >-->
-<!--    <ul class="links">-->
-<!--      <a *ngIf="!(isLoggedIn | async)"-->
-<!--         routerLink="login"-->
-<!--         href="/">-->
-<!--        Login</a>-->
-
-<!--        <a *ngIf="(isLoggedIn | async)"  (click)="userService.logoutUser()"-->
-<!--           routerLink="login" href="/">-->
-<!--          Logout</a>-->
-
-<!--      <a *ngIf="!(isLoggedIn | async)" routerLink="signup" href="">Signup</a>-->
-<!--      <a routerLink="timer"  href="">Timer</a>-->
-
-<!--    </ul>-->
-<!--  </nav>-->
-<!--</header>-->
 
 
 <router-outlet></router-outlet>

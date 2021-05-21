@@ -14,8 +14,15 @@ export class ContentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if(this.content)
+    if (!this.content)
     {
+      this.content = {
+        author: '',
+        url: '',
+        title: '',
+        id: ''
+      };
+
 
     }
   }

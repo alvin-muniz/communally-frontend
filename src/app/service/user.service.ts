@@ -33,6 +33,7 @@ export class UserService {
       {
         const token = response.jwt;
         localStorage.setItem('token', `${token}`);
+        localStorage.setItem('emailAddress', `${loginRequest.emailAddress}`);
         this.isLoginSubject.next(true);
       });
 

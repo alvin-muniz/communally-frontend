@@ -73,7 +73,7 @@ export class TimerComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result => {
       console.log(this.time);
       if (this.sessionService.getCurrentSession().duration){
-        this.sessionService.getCurrentSession().moodAfter = result;
+        this.session.moodAfter = result;
         this.sessionService.changeSession(this.sessionService.getCurrentSession());
         console.log(this.session, 'FROM BEHAVIOUR SUBJECT');
       }else {
@@ -105,8 +105,8 @@ export class TimerComponent implements OnInit{
 
   updateTime(updatedTime: any): any {
     this.time = updatedTime;
-    if(this.loggedIn)
-      {this.openDialog();}
+    if (this.loggedIn)
+      {this.openDialog(); }
   }
 
   startSession(): void {

@@ -6,6 +6,7 @@ export interface Session {
   duration: any;
   moodBefore: Mood;
   moodAfter: Mood;
+  reflection?: any;
 }
 
 

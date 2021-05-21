@@ -38,6 +38,18 @@ export class SessionService {
     this.messageSource.next(session);
   }
 
+  getAllSessions(): any {
+    const token = localStorage.getItem('token');
+    const requestOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      }),
+    };
+    return this.http.get<Session>(`${this.DEV_BASE_URL}/api/sessions`, requestOptions);
+  }
+
+
+
   saveSession(session: Session): any {
 
     const token = localStorage.getItem('token');
