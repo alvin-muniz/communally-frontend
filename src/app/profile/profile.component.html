@@ -21,7 +21,7 @@
     <h3>
       Your Mood Before: {{session.moodBefore}}</h3>
     <h3>
-      Your Mood After:{{session.moodAfter}}</h3>
+      Your Mood After: {{session.moodAfter}}</h3>
     <h3 *ngIf="session.reflection.entry.length > 1; else elseBlock">
       Your Reflection <br> {{session.reflection.entry}}</h3>
     <ng-template #elseBlock>
