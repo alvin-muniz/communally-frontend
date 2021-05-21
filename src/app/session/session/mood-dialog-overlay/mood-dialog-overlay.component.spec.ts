@@ -5,6 +5,7 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from '@angula
 import {Overlay} from '@angular/cdk/overlay';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {InjectionToken} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('MoodDialogOverlayComponent', () => {
   let component: MoodDialogOverlayComponent;
@@ -14,7 +15,7 @@ describe('MoodDialogOverlayComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ MoodDialogOverlayComponent],
       providers: [ MatDialog, Overlay, {provide : MatDialogRef, useValue : {}}, { provide: MAT_DIALOG_DATA, useValue: {} }],
-      imports: [MatDialogModule, BrowserAnimationsModule]
+      imports: [MatDialogModule, BrowserAnimationsModule, HttpClientModule]
     })
     .compileComponents();
   });

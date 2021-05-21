@@ -1,7 +1,5 @@
-<h1 mat-dialog-title>Hi {{data.title}}</h1>
-<div mat-dialog-content>
+<h1 mat-dialog-title>Hi, {{data.title}}</h1>
 
-</div>
 <div mat-dialog-actions>
   <button class="mood" mat-fab color="primary"
            aria-label="Example icon button with a delete icon"
@@ -18,6 +16,5 @@
           [mat-dialog-close]="data.negative">
     <mat-icon [inline]="true">sentiment_very_dissatisfied</mat-icon>
   </button>
-  <button mat-button [mat-dialog-close]="data.positive" cdkFocusInitial>Ok
-  </button>
+
 </div>

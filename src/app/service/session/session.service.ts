@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Session} from '../../api-interface/Session';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Mood} from '../../api-interface/Mood';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,25 +15,30 @@ export class SessionService {
   DEV_BASE_URL = 'http://localhost:9092';
 
 
-  private currentSession: Session = {
+
+  private currentSession: any = {
     id: null,
     date: '',
     duration: '',
     moodBefore: null,
     moodAfter: null
   };
+  private messageSource = new BehaviorSubject(this.currentSession);
+  currentSeshion = this.messageSource.asObservable();
 
   constructor(private http: HttpClient) {
     console.log('currentSession constructor for service');
   }
 
   getCurrentSession(): Session {
-    console.log(this.currentSession);
     return this.currentSession;
   }
 
+  changeSession(session: any): void{
+    this.messageSource.next(session);
+  }
+
   saveSession(session: Session): any {
-    console.log(session);
 
     const token = localStorage.getItem('token');
     const requestOptions = {
@@ -50,7 +56,6 @@ export class SessionService {
 
     newSession.date = this.formatDate(newSession.date);
     this.currentSession = newSession;
-    console.log(this.currentSession, 'CURRENT SESSION!');
 
   }
 

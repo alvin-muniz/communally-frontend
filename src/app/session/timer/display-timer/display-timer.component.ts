@@ -33,7 +33,7 @@ export class DisplayTimerComponent implements OnInit, OnChanges {
         const from = JSON.stringify(changedProp.previousValue);
         console.log(`${propName} changed from ${from} to ${to}`);
         switch (to) {
-          case '-1': {
+          case '0': {
             console.log('Timer Completed');
             this.timerCompleted.emit(true);
           }

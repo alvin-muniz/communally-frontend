@@ -9,7 +9,6 @@
   <button class="updateTimeButton" id="twenty-minute"
           (click)="updateTime(1200)">20 minutes</button>
   </div>
-  <app-mood-dialog></app-mood-dialog>
   <app-display-timer
     (timerCompleted)="timerFinished($event)"
     [time]="time"></app-display-timer>

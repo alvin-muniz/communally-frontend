@@ -1,12 +1,24 @@
-<p *ngIf="!currentSession; else elseBlock"> A session has not been started,
+<p *ngIf="session.date === null; else elseBlock">
+  {{sessionService.getCurrentSession() | json}}
+  {{this.currentSession | json}}
+  {{"This is the mood before:"
++ sessionService.getCurrentSession().moodBefore |
+  json}}
+  {{session | json}}
+  A
+  session has not
+  been started,
   please start one a new session!</p>
 <ng-template #elseBlock>
 <div class="session-details">
   <h3>Nice Job! Slow and steady wins the mind 🧘🏽 </h3>
-<h3>Duration: {{currentSession.duration | time}}</h3>
-  <h3>Today's Date: {{currentSession.date }}</h3>
-  <h3>{{currentSession.moodBefore }}</h3>
-  <h3>{{currentSession.moodAfter }}</h3>
+<h3>Duration: {{session.duration | time}}</h3>
+  <h3>Today's Date: {{session.date }}</h3>
+
+  <h3>
+    Your Mood Before: {{session.moodBefore}}</h3>
+  <h3>
+    Your Mood After:{{session.moodAfter}}</h3>
   <h3 *ngIf="addedReflection" ><mat-icon color="accent">done_all</mat-icon> Reflection
     is now added
     for this </h3>
