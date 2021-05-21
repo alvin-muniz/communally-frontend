@@ -154,21 +154,21 @@ describe('TimerComponent', () => {
 
 
     /* Routing Testing Example*/
-  describe('#isFinished', () => {
-
-
-    it('should call route.navigate("session"))', inject([Router], (router: Router) => {
-          const spy = spyOn(router, 'navigate');
-          component.loggedIn = true;
-          component.timerFinished(true);
-
-          console.log(component.loggedIn, 'logged in component');
-
-          fixture.detectChanges();
-          const url = spy.calls.first().args[0];
-          expect(url[0]).toBe('session');
-      }));
-  });
+  // describe('#isFinished', () => {
+  //
+  //
+  //   it('should call route.navigate("session"))', inject([Router], (router: Router) => {
+  //         const spy = spyOn(router, 'navigate');
+  //         component.loggedIn = true;
+  //         component.timerFinished(true);
+  //
+  //         console.log(component.loggedIn, 'logged in component');
+  //
+  //         fixture.detectChanges();
+  //         const url = spy.calls.first().args[0];
+  //         expect(url[0]).toBe('session');
+  //     }));
+  // });
 
     // it('should update the timer to the value needed', () => {
     //   fixture.detectChanges();
