@@ -11,8 +11,8 @@ import {BehaviorSubject} from 'rxjs';
 
 export class SessionService {
   //
-  // BASE_URL = 'https://communally-backend-sei.herokuapp.com';
-  DEV_BASE_URL = 'http://localhost:9092';
+  BASE_URL = 'https://communally-backend-sei.herokuapp.com';
+  // DEV_BASE_URL = 'http://localhost:9092';
 
 
 
@@ -45,7 +45,7 @@ export class SessionService {
         Authorization: `Bearer ${token}`
       }),
     };
-    return this.http.get<Session>(`${this.DEV_BASE_URL}/api/sessions`, requestOptions);
+    return this.http.get<Session>(`${this.BASE_URL}/api/sessions`, requestOptions);
   }
 
 
@@ -58,7 +58,7 @@ export class SessionService {
         Authorization: `Bearer ${token}`
       }),
     };
-    return this.http.post<Session>(`${this.DEV_BASE_URL}/api/sessions`,
+    return this.http.post<Session>(`${this.BASE_URL}/api/sessions`,
       this.currentSession, requestOptions);
   }
 

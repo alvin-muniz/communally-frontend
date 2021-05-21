@@ -7,8 +7,8 @@ import {Reflection} from '../../api-interface/Reflection';
 })
 export class ReflectionService {
 
-  // BASE_URL = 'https://communally-backend-sei.herokuapp.com';
-  DEV_BASE_URL = 'http://localhost:9092';
+  BASE_URL = 'https://communally-backend-sei.herokuapp.com';
+  // DEV_BASE_URL = 'http://localhost:9092';
 
   private currentReflection: Reflection;
 
@@ -23,7 +23,7 @@ export class ReflectionService {
         Authorization: `Bearer ${token}`
       }),
     };
-    return this.http.post(`${this.DEV_BASE_URL}/api/sessions/${sessionId}/reflections`, reflection, requestOptions);
+    return this.http.post(`${this.BASE_URL}/api/sessions/${sessionId}/reflections`, reflection, requestOptions);
   }
 
 
@@ -34,7 +34,7 @@ export class ReflectionService {
         Authorization: `Bearer ${token}`
       }),
     };
-    return this.http.post(`${this.DEV_BASE_URL}/api/sessions/${sessionId}/reflections/${reflectionId}/content`, content, requestOptions);
+    return this.http.post(`${this.BASE_URL}/api/sessions/${sessionId}/reflections/${reflectionId}/content`, content, requestOptions);
   }
 
   getCurrentReflection(): Reflection {
@@ -53,7 +53,7 @@ export class ReflectionService {
         Authorization: `Bearer ${token}`
       }),
     };
-    return this.http.get(`${this.DEV_BASE_URL}/api/sessions/reflections`, requestOptions);
+    return this.http.get(`${this.BASE_URL}/api/sessions/reflections`, requestOptions);
 
   }
 
