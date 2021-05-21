@@ -9,13 +9,19 @@ import { ReflectionFormComponent } from './session/reflection-form/reflection-fo
 import { ContentTileComponent } from './session/content-tile/content-tile.component';
 import {FormsModule} from '@angular/forms';
 import { HistoryComponent } from './history/history.component';
+import {MoodDialogComponent, MoodDialogOverlayComponent} from './session/mood-dialog/mood-dialog.component';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MaterialModule} from '../material.module';
 
 
 
 @NgModule({
-  declarations: [TimerComponent, DisplayTimerComponent,  TimePipe, SessionComponent, ReflectionFormComponent, ContentTileComponent, HistoryComponent],
+  declarations: [TimerComponent, DisplayTimerComponent,  TimePipe, SessionComponent,
+    ReflectionFormComponent, ContentTileComponent,
+    HistoryComponent, MoodDialogComponent, MoodDialogOverlayComponent],
   imports: [
-    CommonModule, RouterModule, FormsModule
+    CommonModule, RouterModule, FormsModule, MatDialogModule, MatFormFieldModule, MaterialModule
   ],
   exports: [DisplayTimerComponent, TimerComponent]
 })

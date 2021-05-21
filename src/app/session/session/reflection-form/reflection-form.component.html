@@ -1,15 +1,23 @@
 <section>
-  <label>Leave a Reflection</label>
-  <input [(ngModel)]="currentReflection.entry" type="text"
-         placeholder="Enter your reflection" />
-  <label>Add Content</label>
-  <button (click)="showContentForm()">Add Content</button>
+<!--  <label>Leave a Reflection</label>-->
+<!--  <input [(ngModel)]="currentReflection.entry" type="text"-->
+<!--         placeholder="Enter your reflection" />-->
 
+  <mat-form-field appearance="fill">
+    <mat-label>Leave a Reflection</mat-label>
+    <input [(ngModel)]="currentReflection.entry" name="reflection"
+           matInput placeholder="Enter your reflection" >
+  </mat-form-field>
+  <label>Add Content</label>
+<!--  <button (click)="showContentForm()">Add Content</button>-->
+  <button (click)="showContentForm()" mat-button  ><mat-icon>
+    note_add</mat-icon>Add Content</button>
   <app-content-tile
     *ngIf="showContent" (submittedContent)="addContent($event)">
-
   </app-content-tile>
-  <button (click)="submitReflection()">Submit Reflection</button>
+  <button mat-button (click)="submitReflection()" ><mat-icon>add_task
+  </mat-icon>Submit
+    Reflection</button>
   <div class="content-grid">
   <p *ngFor="let content of getAllContent()">content</p>
   </div>

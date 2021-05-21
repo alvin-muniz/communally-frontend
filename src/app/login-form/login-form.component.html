@@ -1,8 +1,32 @@
 <form name="login-form">
   <h2>Login As a User</h2>
-  <input [(ngModel)]="emailAddress" type="text" name="emailAddress" placeholder="Email Address"/>
-  <input [(ngModel)]="password" type="text" name="password" placeholder="Password"/>
-  <button (click)="loginUser()" type="submit" vaue="Login"
-  >Login
-  </button>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your email</mat-label>
+    <input [(ngModel)]="emailAddress" matInput name="emailAddress"
+           placeholder="meditate@example.com" [formControl]="email"
+           required >
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your password</mat-label>
+    <input required [(ngModel)]="password" name="password"  matInput [type]="hide ? 'password' :
+    'text'">
+    <button  mat-icon-button matSuffix (click)="hide = !hide"
+             [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button (click)="loginUser()"  mat-icon-button color="primary">Login<mat-icon>
+    login</mat-icon></button>
+
+
+  <!--  <input [(ngModel)]="emailAddress" type="text" name="emailAddress" placeholder="Email Address"/>-->
+<!--  <input [(ngModel)]="password" type="text" name="password" placeholder="Password"/>-->
+<!--  <button (click)="loginUser()" type="submit" vaue="Login"-->
+<!--  >Login-->
+<!--  </button>-->
 </form>
+
+

@@ -2,13 +2,14 @@
 
 <main class="container">
   <div class="select-time">
-  <button class="updateTimeButton" id="five-minute" (click)="updateTime(5)">5
+  <button class="updateTimeButton" id="five-minute" (click)="updateTime(1)">5
     minutes</button>
   <button class="updateTimeButton" id="ten-minute"
           (click)="updateTime(600)">10 minutes</button>
   <button class="updateTimeButton" id="twenty-minute"
           (click)="updateTime(1200)">20 minutes</button>
   </div>
+  <app-mood-dialog></app-mood-dialog>
   <app-display-timer
 
     (timerCompleted)="timerFinished($event)"

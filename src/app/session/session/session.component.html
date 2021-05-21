@@ -2,15 +2,23 @@
   please start one a new session!</p>
 <ng-template #elseBlock>
 <div class="session-details">
-  <p>{{currentSession | json}}</p>
-<p>{{currentSession.duration | time}}</p>
-  <p>{{currentSession.date }}</p>
-  <p>{{currentSession.moodBefore }}</p>
-  <p>{{currentSession.moodAfter }}</p>
-  <p *ngIf="addedReflection">Reflection is now added for this </p>
+  <h3>Nice Job! Slow and steady wins the mind 🧘🏽 </h3>
+<h3>Duration: {{currentSession.duration | time}}</h3>
+  <h3>Today's Date: {{currentSession.date }}</h3>
+  <h3>{{currentSession.moodBefore }}</h3>
+  <h3>{{currentSession.moodAfter }}</h3>
+  <h3 *ngIf="addedReflection" ><mat-icon color="accent">done_all</mat-icon> Reflection
+    is now added
+    for this </h3>
 
-  <button (click) = "saveSession()">Start a New Session</button>
-  <button (click) = "saveSession()">View Previous Sessions</button>
+
+  <div class="session-buttons">
+  <button (click) = "saveSession()" mat-button color="primary"><mat-icon>
+    model_training</mat-icon>Start New Session</button>
+
+  <button (click) = "saveSession()" mat-button color="primary"><mat-icon>
+    history</mat-icon>View Previous Sessions</button>
+  </div>
 
 </div>
 
