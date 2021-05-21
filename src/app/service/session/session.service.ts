@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Session} from '../../api-interface/Session';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Mood} from '../../api-interface/Mood';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,13 @@ export class SessionService {
   DEV_BASE_URL = 'http://localhost:9092';
 
 
-  private currentSession: Session;
+  private currentSession: Session = {
+    id: null,
+    date: '',
+    duration: '',
+    moodBefore: null,
+    moodAfter: null
+  };
 
   constructor(private http: HttpClient) {
     console.log('currentSession constructor for service');

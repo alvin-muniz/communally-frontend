@@ -9,6 +9,9 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {Router} from '@angular/router';
 import {SessionService} from '../../service/session/session.service';
 import {Mood} from '../../api-interface/Mood';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {Overlay} from '@angular/cdk/overlay';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('TimerComponent', () => {
   let component: TimerComponent;
@@ -17,8 +20,8 @@ describe('TimerComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ TimerComponent, TimePipe, DisplayTimerComponent ],
-      imports: [RouterTestingModule, HttpClientTestingModule],
-      providers: []
+      imports: [RouterTestingModule, HttpClientTestingModule, MatDialogModule, BrowserAnimationsModule],
+      providers: [MatDialog, Overlay]
     })
     .compileComponents();
   });
@@ -101,6 +104,8 @@ describe('TimerComponent', () => {
       spyOn(comp, 'startSession').and.callThrough();
       spyOn(sessionService,  'updateCurrentSession').and.callThrough();
       spyOn(sessionService, 'formatDate').and.callThrough();
+
+      sessionService.getCurrentSession().duration = String(1);
 
       comp.startSession();
       const mockSession = {

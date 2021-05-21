@@ -76,7 +76,6 @@ describe('SessionComponent', () => {
     });
 
     it('should have a viewPreviousSessions button', () => {
-      console.log(fixture.debugElement);
       const endButton = fixture.debugElement.queryAll(By.css('#previousSessions'));
       expect(endButton.length).toBe(1);
       /***
