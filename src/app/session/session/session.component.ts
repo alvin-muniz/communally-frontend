@@ -83,4 +83,8 @@ export class SessionComponent implements OnInit, OnDestroy {
     this.router.navigate(['/profile']).then(r => console.log(r));
   }
 
+  convertMood(moodNumber: number): any {
+    return Mood[moodNumber];
+  }
+
 }

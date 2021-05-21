@@ -16,9 +16,9 @@
   <h3>Today's Date: {{session.date }}</h3>
 
   <h3>
-    Your Mood Before: {{session.moodBefore}}</h3>
+    Your Mood Before: {{convertMood(session.moodBefore)}}</h3>
   <h3>
-    Your Mood After:{{session.moodAfter}}</h3>
+    Your Mood After:{{convertMood(session.moodAfter)}}</h3>
   <h3 *ngIf="addedReflection" ><mat-icon color="accent">done_all</mat-icon> Reflection
     is now added
     for this </h3>

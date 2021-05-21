@@ -14,8 +14,6 @@ Scripts initiated by Travis.yml file:
     "test_headless": "ng test --watch false --browsers ChromeHeadless",
     "test_suite": "npm run lint && npm run test_headless"
 
-##Video RTC 
-https://blog.theodo.com/2021/01/webRTC-websockets-video-call-app/
 
 
 ## Code scaffolding
@@ -69,19 +67,18 @@ information from the time variable into a time format that's appropriate.
 
 ##Persisting Sessions
 
-Currently a lot of the logic is being held in the timer component, that 
-needs to get persisted into a session object. Since that is a main component 
-of my application, persisting meditation sessions, I am going to keep the 
-overall flow of the information lightweight use a session service to persist 
-the information from the TimerComponent into a session object the view is 
-able to view and retrieve from a session route.
+The trigger for the submit reflection event is a button. That calls off 2 events within the observable that will do the following in order.
 
-Session Module will hold:
-TimerComponent {push session information to} -> Session Component {acquire 
-additional session information [ReflectionComponent nested within]}-> Persist 
-the Session Object -> Viewable at the route "session"
- 1. Navigate to session component once timer finishes loading
- 2. 
+Update the DOM to show that the Reflection has been added.  And also, it wil save the content added to the reflection if the user would like to have those added. This is optional.
+
+Structuring data in a Map object allows for easy polymorphism across different contexts, you can not only signal off a boolean event but also use that object to do some related event. I like working this way as it helps me really focus on what I want to do and not how.
+
+
+
+
+##Future Plans
+Video RTC
+https://blog.theodo.com/2021/01/webRTC-websockets-video-call-app/
 
 
 Testing Resource
