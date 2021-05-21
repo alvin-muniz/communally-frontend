@@ -8,9 +8,9 @@ import {Content} from '../../../api-interface/Content';
 })
 export class ContentFormComponent implements OnInit {
 
-  title = 'test content';
-  author = 'author';
-  url = 'url';
+  title = 'Doors of Perception';
+  author = 'Aldous Huxely';
+  url = 'https://en.wikipedia.org/wiki/The_Doors_of_Perception';
 
   @Output() submittedContent = new EventEmitter<Map<boolean, any>>();
 
@@ -19,7 +19,7 @@ export class ContentFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submitContent() {
+  submitContent(): void {
 
     const content: Content = {
       author: this.author,

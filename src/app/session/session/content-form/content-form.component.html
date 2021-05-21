@@ -1,7 +1,22 @@
 <p>content-tile works!</p>
 
-  <input  [(ngModel)]="title" type="text" />
-  <input  [(ngModel)]="author" type="text"/>
-  <input  [(ngModel)]="url" type="text"/>
 
-<button (click)="submitContent()">Add Form!</button>
+<mat-form-field appearance="fill">
+  <mat-label>Title</mat-label>
+  <input [(ngModel)]="title" name="title"
+         matInput placeholder="Content Title" >
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Author</mat-label>
+  <input [(ngModel)]="author" name="author"
+         matInput placeholder="Content Author" >
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>URL</mat-label>
+  <input [(ngModel)]="url" name="url"
+         matInput placeholder="Content URL" >
+</mat-form-field>
+
+<button mat-button (click)="submitContent()" ><mat-icon>add_task
+</mat-icon>Submit
+  Content</button>

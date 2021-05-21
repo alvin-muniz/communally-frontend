@@ -15,13 +15,14 @@ import {MaterialModule} from '../material.module';
 import {ContentFormComponent} from './session/content-form/content-form.component';
 import {MoodDialogOverlayComponent} from './session/mood-dialog-overlay/mood-dialog-overlay.component';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {ContentComponent} from '../content/content.component';
 
 
 
 @NgModule({
   declarations: [TimerComponent, DisplayTimerComponent,  TimePipe, SessionComponent,
     ReflectionFormComponent, ContentFormComponent,
-    HistoryComponent, MoodDialogComponent, MoodDialogOverlayComponent],
+    HistoryComponent, MoodDialogComponent, MoodDialogOverlayComponent, ContentComponent],
   imports: [ BrowserAnimationsModule,
     CommonModule, RouterModule, FormsModule, MatDialogModule, MatFormFieldModule, MaterialModule],
   exports: [DisplayTimerComponent, TimerComponent]

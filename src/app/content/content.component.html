@@ -1,1 +1,5 @@
-<p>content works!</p>
+<ng-template *ngIf="content">
+  {{content.title}}
+  <a href="{{content.url}}">View Site</a>
+</ng-template>
+

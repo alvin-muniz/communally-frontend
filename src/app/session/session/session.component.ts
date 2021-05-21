@@ -19,7 +19,7 @@ export class SessionComponent implements OnInit, OnDestroy {
   currentSession: any;
   currentReflection: Reflection = {
     id: null,
-    entry: 'null',
+    entry: 'Your feelings go here',
     content: []
   };
 

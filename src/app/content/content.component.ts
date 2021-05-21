@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Content} from '../api-interface/Content';
 
 @Component({
   selector: 'app-content',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
+  @Input() content: Content;
+
+
   constructor() { }
 
   ngOnInit(): void {
+    if(this.content)
+    {
+
+    }
   }
 
 }

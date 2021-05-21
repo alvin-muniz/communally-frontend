@@ -1,15 +1,10 @@
 <section>
-<!--  <label>Leave a Reflection</label>-->
-<!--  <input [(ngModel)]="currentReflection.entry" type="text"-->
-<!--         placeholder="Enter your reflection" />-->
-
   <mat-form-field appearance="fill">
     <mat-label>Leave a Reflection</mat-label>
     <input [(ngModel)]="currentReflection.entry" name="reflection"
            matInput placeholder="Enter your reflection" >
   </mat-form-field>
   <label>Add Content</label>
-<!--  <button (click)="showContentForm()">Add Content</button>-->
   <button (click)="showContentForm()" mat-button  ><mat-icon>
     note_add</mat-icon>Add Content</button>
   <app-content-form
@@ -19,7 +14,8 @@
   </mat-icon>Submit
     Reflection</button>
   <div class="content-grid">
-  <p *ngFor="let content of getAllContent()">content</p>
+    <app-content *ngFor="let content of getAllContent()"
+    [content]="content"></app-content>
   </div>
   <pre>{{currentReflection | json}}</pre>
   <pre>{{currentSession | json}}</pre>

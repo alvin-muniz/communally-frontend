@@ -14,9 +14,10 @@ export class ReflectionFormComponent implements OnInit {
   @Output() reflectionSubmission = new EventEmitter<Map<boolean, Reflection>>();
   @Output() contentListSubmission = new EventEmitter<Map<boolean, any[]>>();
   showContent: boolean;
+
   @Input() currentReflection: Reflection = {
     id: null,
-    entry: 'null',
+    entry: 'Enter your reflection',
     content: []
   };
   contentList = new Array();
@@ -25,11 +26,11 @@ export class ReflectionFormComponent implements OnInit {
   constructor(private reflectionService: ReflectionService) { }
 
   ngOnInit(): void {
-    if (!this.currentReflection.entry)
-    {
-      this.currentReflection.entry = 'Enter Your Reflection here';
-      this.currentReflection.content = [];
-    }
+    // if (this.currentReflection.entry)
+    // {
+    //   this.currentReflection.entry = 'Enter Your Reflection here';
+    //   this.currentReflection.content = [];
+    // }
   }
 
   submitReflection(): void{
@@ -51,7 +52,7 @@ export class ReflectionFormComponent implements OnInit {
     this.showContent = true;
   }
 
-  addContent(mapObject: Map<boolean, string> ) {
+  addContent(mapObject: Map<boolean, any> ): void {
 
 
     if (mapObject.has(true))
