@@ -13,10 +13,12 @@
 
 
   <div class="session-buttons">
-  <button (click) = "saveSession()" mat-button color="primary"><mat-icon>
+  <button id="newSession" (click) = "newSession()" mat-button
+          color="primary"><mat-icon>
     model_training</mat-icon>Start New Session</button>
 
-  <button (click) = "saveSession()" mat-button color="primary"><mat-icon>
+  <button id="previousSessions" (click) = "viewSession()" mat-button
+          color="primary"><mat-icon>
     history</mat-icon>View Previous Sessions</button>
   </div>
 

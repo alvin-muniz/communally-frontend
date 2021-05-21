@@ -2,11 +2,11 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {Content} from '../../../api-interface/Content';
 
 @Component({
-  selector: 'app-content-tile',
-  templateUrl: './content-tile.component.html',
-  styleUrls: ['./content-tile.component.less']
+  selector: 'app-content-form',
+  templateUrl: './content-form.component.html',
+  styleUrls: ['./content-form.component.less']
 })
-export class ContentTileComponent implements OnInit {
+export class ContentFormComponent implements OnInit {
 
   title = 'test content';
   author = 'author';

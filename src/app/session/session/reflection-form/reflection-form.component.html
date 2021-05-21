@@ -12,9 +12,9 @@
 <!--  <button (click)="showContentForm()">Add Content</button>-->
   <button (click)="showContentForm()" mat-button  ><mat-icon>
     note_add</mat-icon>Add Content</button>
-  <app-content-tile
+  <app-content-form
     *ngIf="showContent" (submittedContent)="addContent($event)">
-  </app-content-tile>
+  </app-content-form>
   <button mat-button (click)="submitReflection()" ><mat-icon>add_task
   </mat-icon>Submit
     Reflection</button>

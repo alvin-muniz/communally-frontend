@@ -3,6 +3,7 @@ import {Mood} from '../../api-interface/Mood';
 import {SessionService} from '../../service/session/session.service';
 import {Reflection} from '../../api-interface/Reflection';
 import {ReflectionService} from '../../service/reflection/reflection.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-session',
@@ -20,7 +21,9 @@ export class SessionComponent implements OnInit {
     content: []
   };
 
-  constructor(private sessionService: SessionService, private reflectionService: ReflectionService) { }
+  constructor(private sessionService: SessionService,
+              private reflectionService: ReflectionService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.currentSession = this.sessionService.getCurrentSession();
@@ -47,8 +50,16 @@ export class SessionComponent implements OnInit {
 
   }
 
-  saveSession() {
-    console.log('this session is saved');
+  newSession() {
+    this.router.navigate(['timer']);
   }
+
+  viewSession() {
+    this.router.navigate(['profile']);
+  }
+
+  // saveSession() {
+  //   console.log('this session is saved');
+  // }
 
 }

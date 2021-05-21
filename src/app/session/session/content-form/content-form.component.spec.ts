@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContentTileComponent } from './content-tile.component';
+import {ContentFormComponent} from './content-form.component';
 
-describe('ContentTileComponent', () => {
-  let component: ContentTileComponent;
-  let fixture: ComponentFixture<ContentTileComponent>;
+describe('ContentFormComponent', () => {
+  let component: ContentFormComponent;
+  let fixture: ComponentFixture<ContentFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ContentTileComponent ]
+      declarations: [ ContentFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContentTileComponent);
+    fixture = TestBed.createComponent(ContentFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
