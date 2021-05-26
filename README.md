@@ -61,11 +61,11 @@ server running in another and moving between them, starting with the red
 tests in Karma and then confirming the changes in the html and then the live 
 server. THis allows the easiest route to update as I went along. 
 
-##Custom Pipe
+## Custom Pipe
 I utilized a custom pipe for the meditation timer to transform the 
 information from the time variable into a time format that's appropriate.
 
-##Persisting Sessions
+## Persisting Sessions
 
 The trigger for the submit reflection event is a button. That calls off 2 events within the observable that will do the following in order.
 
@@ -73,11 +73,16 @@ Update the DOM to show that the Reflection has been added.  And also, it wil sav
 
 Structuring data in a Map object allows for easy polymorphism across different contexts, you can not only signal off a boolean event but also use that object to do some related event. I like working this way as it helps me really focus on what I want to do and not how.
 
+## Capturing time via lifecycle hooks
+
+  The timer proved interesting to test. As a means of acheiving sepeartion of concerns and utilizing native angular features I opted to have the display time be a component in and of itself. I choose that route, because through a lot of the logic in a timer is really wrapped up in the functioning of the actual time portion so by utilizing ngOnChanges as the hook  to emit data to the parent I was able to natively capture the session length and send a completion signal once it reaches a certain. I think this will prove easy to maintain as I build on the application.
+  
+  ![image](https://user-images.githubusercontent.com/28934521/119709275-a1f0a400-be22-11eb-9ab4-f05d7d4d972d.png)
 
 
 
-##Future Plans
-Video RTC
+## Future Plans
+Video RTC to allow a community component to the application
 https://blog.theodo.com/2021/01/webRTC-websockets-video-call-app/
 
 
