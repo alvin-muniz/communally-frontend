@@ -54,7 +54,12 @@ wanted each component to contain from
 
 https://dev.to/lysofdev/an-angular-testing-cheatsheet-5hj2
 
-The meditation timer proved difficult to test so I had to put that to the side.
+The meditation timer proved difficult to test so I had to put that to the side but I was able to incrementally through specifications:
+  
+![image](https://user-images.githubusercontent.com/28934521/119710184-b1242180-be23-11eb-9164-e0c63dbe99be.png)
+  
+![image](https://user-images.githubusercontent.com/28934521/119710249-c4cf8800-be23-11eb-9c2d-1d5c3a7fb237.png)
+
 
 My workflow consisted of having Karma open on one window and hte local 
 server running in another and moving between them, starting with the red 
@@ -63,7 +68,10 @@ server. THis allows the easiest route to update as I went along.
 
 ## Custom Pipe
 I utilized a custom pipe for the meditation timer to transform the 
-information from the time variable into a time format that's appropriate.
+information from the time variable into a time format that's appropriate. I like this approach as I can use the time variable as is to persist the duration into the database for future retrieval meaning, keeping the integratity of the original variable.
+  
+  ![image](https://user-images.githubusercontent.com/28934521/119709823-407d0500-be23-11eb-8246-a3ebd57be882.png)
+
 
 ## Persisting Sessions
 
