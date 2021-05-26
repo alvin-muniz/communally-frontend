@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-##CI/CD
+## CI/CD
 Git -> Travis CI -> Heroku
 
 Scripts initiated by Travis.yml file:
@@ -87,8 +87,17 @@ Structuring data in a Map object allows for easy polymorphism across different c
   
   ![image](https://user-images.githubusercontent.com/28934521/119709275-a1f0a400-be22-11eb-9ab4-f05d7d4d972d.png)
 
+## Capturing the mood
+  
+To make use of native angular features I opted to experiment with the dialog material library. This route was chosen to keep the integrity of the user experience and to limit to amount of interation the user needs to do to start and end a meditation.
 
+![image](https://user-images.githubusercontent.com/28934521/119710556-1b3cc680-be24-11eb-99ba-f32bef076ef7.png)
 
+### Overlay implemented on Timer Component
+  
+  ![image](https://user-images.githubusercontent.com/28934521/119710797-68209d00-be24-11eb-8776-7cce8f41b7ff.png)
+
+  
 ## Future Plans
 Video RTC to allow a community component to the application
 https://blog.theodo.com/2021/01/webRTC-websockets-video-call-app/
